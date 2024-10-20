@@ -1,12 +1,12 @@
 import React from 'react'
 import Nav from './components/Nav'
 
-function App() {
+function Features() {
   return (
     <div>
-        <Nav currentpage={"App"}/>
+        <Nav currentpage={"Features"} />
     </div>
   )
 }
 
-export default App
+export default Features
