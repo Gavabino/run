@@ -1,0 +1,41 @@
+
+.homeScreen {
+    border: 2px solid black;
+    width: 100%;
+    height: 95vh;
+    margin-top: 5vh;
+    font-family: 'Trade Gothic LT Std', sans-serif;
+}
+
+.background-image {
+    width: 100%;
+}
+
+.info {
+    position: absolute;
+    color: black;
+    top: 40%;
+    width: 30vw;
+    height: 20vh;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin-left: 35vw;
+    margin-right: 35vw;
+}
+
+.title {
+    font-size: 5rem;
+    font-weight: bold;
+    color: var(--light-accent);
+}
+.caption {
+    font-size: 2rem;
+    color: var(--dark-accent);
+    padding-left: 10px;
+    padding-right: 10px;
+}
