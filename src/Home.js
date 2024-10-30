@@ -26,7 +26,7 @@ function Home() {
         </div>
       </div>
       <div className="features">
-        {info.map(item => <InfoCard text={item.text} header={item.header} image={item.image} />)}
+        {info.map(item => <InfoCard text={item.text} header={item.header} image={item.image} interation={item.interation} />)}
       </div>
     </div>
   );

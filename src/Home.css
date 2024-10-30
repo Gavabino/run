@@ -33,7 +33,7 @@
 }
 .caption {
     font-size: 2rem;
-    color: var(--dark-accent);
+    color: var(--dark-main);
     padding-left: 10px;
     padding-right: 10px;
 }
