@@ -12,12 +12,17 @@
     left: 0;
     height: 5vh;
     width: 100vw;
-    border-bottom: 5px solid var(--medium-main);
     display: flex;
     justify-content: space-between;
-    font-family: 'Trade Gothic LT Std', sans-serif;
+    font-family: "Inter", sans-serif;
     font-size: 1.25rem;
     z-index: 1;
+    background: rgba(255, 255, 255, 0.75);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 5px solid var(--medium-main);
 }
 
 .buttons {
