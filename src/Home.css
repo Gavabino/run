@@ -1,18 +1,24 @@
 .homeScreen {
+    position: relative;
     width: 100%;
-    height: 95vh;
+    height: 100vh;
     margin-top: 5vh;
     font-family: "Inter", sans-serif;
+    background-image: url(./assets/layered-waves-haikei.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .background-image {
+    object-fit: fill;
+    height: 100%;
     width: 100%;
 }
 
 .info {
     position: absolute;
     color: black;
-    top: 40%;
+    top: 35%;
     width: 30vw;
     height: 20vh;
     text-align: center;
@@ -41,10 +47,13 @@
 .features {
     display: flex;
     flex-direction: column;
-    margin-top: 10px;
+    
+    padding-top: 100px;
     position: relative;
     width: 100%;
     height: 800px;
-    border: 2px solid black;
     align-items: center;
+    background-image: url("./assets/layered-waves-haikei2.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
