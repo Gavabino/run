@@ -1,0 +1,33 @@
+.easy {
+    border: 3px solid;
+    width: 300px;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #8FFF8D;
+    border-color: #00FF09;
+    border-radius: 15px;
+    margin: 5px;
+}
+
+.recovery {
+    border: 3px solid;
+    width: 300px;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #8DE2FF;
+    border-color: #00D9FF;
+    border-radius: 15px;
+    margin: 5px;
+}
+
+.distance {
+    margin-left: 5px;
+}
+
+.time {
+    margin-right: 20px;
+}

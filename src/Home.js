@@ -1,10 +1,9 @@
 import React from "react";
 import "./Home.css";
-import background from "./assets/layered-waves-haikei.svg"
 
 import Nav from "./components/Nav";
 import InfoCard from "./components/InfoCard";
-import info from "./assets/InfoCardInfo";
+import info from "./assets/infoCardData";
 
 function Home() {
 

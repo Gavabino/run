@@ -12,6 +12,7 @@ import Signup from './Signup';
 import Signin from './Signin';
 import Usage from './Usage';
 import App from './App';
+import HomeScreen from './HomeScreen';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
   {
     path: "/signin",
     element: <Signin />
+  },
+  {
+    path: "/homescreen",
+    element: <HomeScreen />
   }
 ]);
 

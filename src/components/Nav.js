@@ -46,7 +46,7 @@ function Nav({ currentpage }) {
       {/* Usage */}
       <Link className={activeIndex === 2 ? "activeLink" : "link"} to={"/usage"}>Usage</Link>
       {/* App */}
-      <Link className={activeIndex === 3 ? "activeLink" : "link"} to={"/app"}>App</Link>
+      <Link className={activeIndex === 3 ? "activeLink" : "link"} to={"/homescreen"}>App</Link>
       {/* Sign in */}
       <Link className={activeIndex === 5 ? "activeLogin" : "login"} to={"/signin"}>Sign In</Link>
       {/* Sign up */}
