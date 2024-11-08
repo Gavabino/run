@@ -1,40 +1,124 @@
-const calenderData = [
+const EmptyCalander = [
   [
     {
       id: 0,
-      workouts: [],
+      workouts: []
     },
     {
       id: 1,
-      type: "occupied",
-      workouts: [{ type: "easy", display_type: "Easy Run", distance: 6, time: 50 }],
+      workouts: []
     },
     {
       id: 2,
-      type: "empty",
-      workouts: [],
+      workouts: []
     },
     {
       id: 3,
-      type: "empty",
-      workouts: [],
+      workouts: []
     },
     {
       id: 4,
-      type: "empty",
-      workouts: [],
+      workouts: []
     },
     {
       id: 5,
-      type: "empty",
-      workouts: [],
+      workouts: []
     },
     {
       id: 6,
-      type: "empty",
-      workouts: [],
+      workouts: []
     },
   ],
+  [
+    {
+      id: 0,
+      workouts: []
+    },
+    {
+      id: 1,
+      workouts: []
+    },
+    {
+      id: 2,
+      workouts: []
+    },
+    {
+      id: 3,
+      workouts: []
+    },
+    {
+      id: 4,
+      workouts: []
+    },
+    {
+      id: 5,
+      workouts: []
+    },
+    {
+      id: 6,
+      workouts: []
+    },
+  ],
+  [
+    {
+      id: 0,
+      workouts: []
+    },
+    {
+      id: 1,
+      workouts: []
+    },
+    {
+      id: 2,
+      workouts: []
+    },
+    {
+      id: 3,
+      workouts: []
+    },
+    {
+      id: 4,
+      workouts: []
+    },
+    {
+      id: 5,
+      workouts: []
+    },
+    {
+      id: 6,
+      workouts: []
+    },
+  ],
+  [
+    {
+      id: 0,
+      workouts: []
+    },
+    {
+      id: 1,
+      workouts: []
+    },
+    {
+      id: 2,
+      workouts: []
+    },
+    {
+      id: 3,
+      workouts: []
+    },
+    {
+      id: 4,
+      workouts: []
+    },
+    {
+      id: 5,
+      workouts: []
+    },
+    {
+      id: 6,
+      workouts: []
+    },
+  ]
 ];
 
-export default calenderData;
+export default EmptyCalander;

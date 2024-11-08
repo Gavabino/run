@@ -1,18 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Home from './Home';
+import Home from './pages/Home';
 import reportWebVitals from './reportWebVitals';
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Features from './Features';
-import Signup from './Signup';
-import Signin from './Signin';
-import Usage from './Usage';
-import App from './App';
-import HomeScreen from './HomeScreen';
+import Features from './pages/Features';
+import Signup from './pages/Signup';
+import Signin from './pages/Signin';
+import Usage from './pages/Usage';
+import App from './pages/App';
+import HomeScreen from './pages/HomeScreen';
 const router = createBrowserRouter([
   {
     path: "/",
