@@ -2,121 +2,149 @@ const EmptyCalander = [
   [
     {
       id: 0,
-      workouts: []
+      workouts: [],
+      isShowing: false
     },
     {
       id: 1,
-      workouts: []
+      workouts: [],
+      isShowing: false
     },
     {
       id: 2,
-      workouts: []
+      workouts: [],
+      isShowing: false
     },
     {
       id: 3,
-      workouts: []
+      workouts: [],
+      isShowing: false
     },
     {
       id: 4,
-      workouts: []
+      workouts: [],
+      isShowing: false
     },
     {
       id: 5,
-      workouts: []
+      workouts: [],
+      isShowing: false
     },
     {
       id: 6,
-      workouts: []
+      workouts: [],
+      isShowing: false
     },
   ],
   [
     {
       id: 0,
-      workouts: []
+      workouts: [],
+      isShowing: false
     },
     {
       id: 1,
-      workouts: []
+      workouts: [],
+      isShowing: false
     },
     {
       id: 2,
-      workouts: []
+      workouts: [],
+      isShowing: false
     },
     {
       id: 3,
-      workouts: []
+      workouts: [],
+      isShowing: false
     },
     {
       id: 4,
-      workouts: []
+      workouts: [],
+      isShowing: false
     },
     {
       id: 5,
-      workouts: []
+      workouts: [],
+      isShowing: false
     },
     {
       id: 6,
-      workouts: []
+      workouts: [],
+      isShowing: false
     },
   ],
   [
     {
       id: 0,
-      workouts: []
+      workouts: [],
+      isShowing: false
     },
     {
       id: 1,
-      workouts: []
+      workouts: [],
+      isShowing: false
     },
     {
       id: 2,
-      workouts: []
+      workouts: [],
+      isShowing: false
     },
     {
       id: 3,
-      workouts: []
+      workouts: [],
+      isShowing: false
     },
     {
       id: 4,
-      workouts: []
+      workouts: [],
+      isShowing: false
     },
     {
       id: 5,
-      workouts: []
+      workouts: [],
+      isShowing: false
     },
     {
       id: 6,
-      workouts: []
+      workouts: [],
+      isShowing: false
     },
   ],
   [
     {
       id: 0,
-      workouts: []
+      workouts: [],
+      isShowing: false
     },
     {
       id: 1,
-      workouts: []
+      workouts: [],
+      isShowing: false
     },
     {
       id: 2,
-      workouts: []
+      workouts: [],
+      isShowing: false
     },
     {
       id: 3,
-      workouts: []
+      workouts: [],
+      isShowing: false
     },
     {
       id: 4,
-      workouts: []
+      workouts: [],
+      isShowing: false
     },
     {
       id: 5,
-      workouts: []
+      workouts: [],
+      isShowing: false
     },
     {
       id: 6,
-      workouts: []
+      workouts: [],
+      isShowing: false
     },
   ]
 ];

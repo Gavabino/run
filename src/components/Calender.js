@@ -7,11 +7,23 @@ import Nav from "./Nav";
 
 function Calender() {
   let [seed, setSeed] = useState(1);
+  let [isShowing, setShowing] = useState(true);
+  let [day, setDay] = useState({})
   let calenderData = JSON.parse(localStorage.getItem("workouts"));
+
   return (
     <div>
       <Nav currentpage={"App"} />
       <div className="container">
+        {isShowing && (
+          <ExpandedPreview
+            isShowing={isShowing}
+            setShowing={setShowing}
+            seed={seed}
+            setSeed={setSeed}
+            day={day}
+          />
+        )}
         <table>
           <tbody>
             {calenderData.map((week) => (
@@ -30,14 +42,23 @@ function Calender() {
                         "workouts",
                         JSON.stringify(calenderData)
                       );
-                      console.log("Added Workout");
                     };
+                    const toggleShowing = () => {
+                      setShowing(!isShowing);
+                      setSeed((seed += 1));
+                      setDay(day)
+                    };
+
                     return (
                       <td key={day.id}>
                         <div className="entryContainer">
-                        <button onClick={addItem} className="add">
-                          Add Workout
-                        </button>
+                          <button onClick={addItem} className="add">
+                            Add Workout
+                          </button>
+                          <button className="expand" onClick={toggleShowing}>
+                            {" "}
+                            &#8600;
+                          </button>
                         </div>
                       </td>
                     );
@@ -54,7 +75,6 @@ function Calender() {
                         "workouts",
                         JSON.stringify(calenderData)
                       );
-                      console.log("Added Workout");
                     };
                     const removeItem = () => {
                       day.workouts.pop();
@@ -63,23 +83,31 @@ function Calender() {
                         "workouts",
                         JSON.stringify(calenderData)
                       );
-                      console.log("Removed Workout");
+                    };
+                    const toggleShowing = () => {
+                      setShowing(!isShowing);
+                      setSeed((seed += 1));
+                      setDay(day);
                     };
                     return (
                       <td key={day.id} className="entry">
                         <div className="entryContainer">
-                        {day.workouts.map((workout) => {
-                          return (
-                            <WorkoutPreview
-                              display_type={workout.display_type}
-                              type={workout.type}
-                              distance={workout.distance}
-                            />
-                          );
-                        })}
-                        <button onClick={addItem} className="add">
-                          Add Workout
-                        </button>
+                          {day.workouts.map((workout) => {
+                            return (
+                              <WorkoutPreview
+                                display_type={workout.display_type}
+                                type={workout.type}
+                                distance={workout.distance}
+                              />
+                            );
+                          })}
+                          <button onClick={addItem} className="add">
+                            Add Workout
+                          </button>
+                          <button className="expand" onClick={toggleShowing}>
+                            {" "}
+                            &#8600;
+                          </button>
                         </div>
                       </td>
                     );
@@ -89,16 +117,16 @@ function Calender() {
             ))}
           </tbody>
         </table>
-        <button
-          onClick={() => {
-            localStorage.setItem("workouts", JSON.stringify(EmptyCalander));
-            console.log("Reset");
-            setSeed((seed += 1));
-          }}
-        >
-          Reset
-        </button>
       </div>
+      <button
+        onClick={() => {
+          localStorage.setItem("workouts", JSON.stringify(EmptyCalander));
+          console.log("Reset");
+          setSeed((seed += 1));
+        }}
+      >
+        Reset
+      </button>
     </div>
   );
 }
@@ -109,8 +137,24 @@ function WorkoutPreview({ display_type, type, distance }) {
   return (
     <div className={type + "preview"}>
       <p>
-        {display_type}: {distance} Miles
+        {display_type}
       </p>
+    </div>
+  );
+}
+
+function ExpandedPreview({ day, isShowing, setShowing, seed, setSeed }) {
+  const toggleShowing = () => {
+    setShowing(!isShowing);
+    setSeed((seed += 1));
+    console.log(isShowing);
+  };
+  return (
+    <div className="excontainer">
+      <button className="expand" onClick={toggleShowing}>
+        {" "}
+        &#8598;
+      </button>
     </div>
   );
 }

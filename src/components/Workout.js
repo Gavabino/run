@@ -1,7 +1,7 @@
 import React from "react";
 import "./Workout.css"
-//import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-//import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 function Workout({ display_type, type, distance, time, deleteFunction }) {
   return (
@@ -14,12 +14,11 @@ function Workout({ display_type, type, distance, time, deleteFunction }) {
           Estimated Time: <br />
           {time}
         </p>
-        <button onClick={deleteFunction}>D</button>
-        {/*<FontAwesomeIcon
+        <FontAwesomeIcon
                 icon={faTrash}
                 className="delete"
                 onClick={deleteFunction}
-            />*/}
+            />
       </div>
     </div>
   );
