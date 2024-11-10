@@ -131,3 +131,10 @@ td {
     left: 5px;
     z-index: 10;
 }
+
+.workoutContainer {
+    overflow-y: scroll;
+    width: 25%;
+    height: 90%;
+    border: 2px solid black;
+}

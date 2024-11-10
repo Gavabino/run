@@ -8,8 +8,8 @@ import Nav from "./Nav";
 function Calender() {
   let [seed, setSeed] = useState(1);
   let [isShowing, setShowing] = useState(true);
-  let [day, setDay] = useState({})
-  let calenderData = JSON.parse(localStorage.getItem("workouts"));
+  let [day, setDay] = useState({});
+  let [calenderData, setCalanderData] = useState(JSON.parse(localStorage.getItem("workouts")));
 
   return (
     <div>
@@ -22,6 +22,7 @@ function Calender() {
             seed={seed}
             setSeed={setSeed}
             day={day}
+            calenderData={calenderData}
           />
         )}
         <table>
@@ -46,7 +47,7 @@ function Calender() {
                     const toggleShowing = () => {
                       setShowing(!isShowing);
                       setSeed((seed += 1));
-                      setDay(day)
+                      setDay(day);
                     };
 
                     return (
@@ -76,14 +77,7 @@ function Calender() {
                         JSON.stringify(calenderData)
                       );
                     };
-                    const removeItem = () => {
-                      day.workouts.pop();
-                      setSeed((seed += 1));
-                      localStorage.setItem(
-                        "workouts",
-                        JSON.stringify(calenderData)
-                      );
-                    };
+                    
                     const toggleShowing = () => {
                       setShowing(!isShowing);
                       setSeed((seed += 1));
@@ -136,21 +130,44 @@ export default Calender;
 function WorkoutPreview({ display_type, type, distance }) {
   return (
     <div className={type + "preview"}>
-      <p>
-        {display_type}
-      </p>
+      <p>{display_type}</p>
     </div>
   );
 }
 
-function ExpandedPreview({ day, isShowing, setShowing, seed, setSeed }) {
+function ExpandedPreview({ day, isShowing, setShowing, seed, setSeed, calenderData }) {
   const toggleShowing = () => {
     setShowing(!isShowing);
     setSeed((seed += 1));
     console.log(isShowing);
   };
+
+  
   return (
     <div className="excontainer">
+      <div className="workoutContainer">
+        {day.workouts?.map((workout) => {
+          const removeItem = () => {
+            day.workouts.splice(day.workouts.indexOf(workout), 1);
+            setSeed((seed += 1));
+            localStorage.setItem(
+              "workouts",
+              JSON.stringify(calenderData)
+            );
+          };
+
+          return (
+            <Workout
+              display_type={workout.display_type}
+              type={workout.type}
+              distance={workout.distance}
+              time={workout.time}
+              deleteFunction={removeItem}
+            />
+          );
+        })}
+      </div>
+
       <button className="expand" onClick={toggleShowing}>
         {" "}
         &#8598;
