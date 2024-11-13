@@ -130,11 +130,102 @@ td {
     top: 100px;
     left: 5px;
     z-index: 10;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-family: "Inter", sans-serif;
 }
 
 .workoutContainer {
     overflow-y: scroll;
-    width: 25%;
+    width: auto;
+    min-width: 320px;
     height: 90%;
     border: 2px solid black;
+}
+
+.detailsContainer {
+    width: 20%;
+    height: 90%;
+    border: 2px solid black;
+}
+
+.weekView {
+    width: 40%;
+    height: 90%;
+    border: 2px solid black;
+}
+
+.largeAdd {
+    border: 3px solid;
+    width: 300px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    background-color: var(--light-main);
+    border-color: var(--medium-main);
+    border-radius: 15px;
+    margin: 5px;
+    justify-content: center;
+    font-size: 1.1rem;
+}
+
+.largeAdd:hover {
+    transform: scale(1.01);
+}
+
+.largeAdd:active {
+    background-color: var(--medium-main);
+}
+
+.instructions {
+    margin: 5px;
+}
+
+.addRunForm {
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+.selectType {
+    margin-top: 5px;
+    border-radius: 15px;
+    height: 30px;
+    border-top: 2px solid var(--light-accent);
+    border-left: 2px solid var(--light-accent);
+    border-bottom: 2px solid var(--dark-accent);
+    border-right: 2px solid var(--dark-accent);
+}
+
+.timeSelect {
+    margin-top: 5px;
+    border-radius: 15px;
+    height: 30px;
+    border-top: 2px solid var(--light-accent);
+    border-left: 2px solid var(--light-accent);
+    border-bottom: 2px solid var(--dark-accent);
+    border-right: 2px solid var(--dark-accent);
+}
+
+.distanceSelect {
+    margin-top: 5px;
+    border-radius: 15px;
+    height: 30px;
+    border-top: 2px solid var(--light-accent);
+    border-left: 2px solid var(--light-accent);
+    border-bottom: 2px solid var(--dark-accent);
+    border-right: 2px solid var(--dark-accent);
+}
+
+.submit {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 15px;
+    height: 30px;
+    border-top: 2px solid var(--light-accent);
+    border-left: 2px solid var(--light-accent);
+    border-bottom: 2px solid var(--dark-accent);
+    border-right: 2px solid var(--dark-accent);
 }

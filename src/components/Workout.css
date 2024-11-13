@@ -31,3 +31,27 @@
 .time {
     margin-right: 20px;
 }
+
+.delete {
+    margin-right: 5px;
+}
+
+.recovery:hover, .easy:hover {
+    transform: scale(1.01);
+}
+
+.easy:active {
+    background-color: #00FF09;
+}
+
+.recovery:active {
+    background-color: #00D9FF;
+}
+
+.click {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    height: 100%;
+}
