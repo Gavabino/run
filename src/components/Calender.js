@@ -5,11 +5,13 @@ import { useForm } from "react-hook-form";
 import EmptyCalander from "../assets/calanderData";
 import Workout from "./Workout";
 import Nav from "./Nav";
+import Weekview from "./Weekview";
 
 function Calender() {
   let [seed, setSeed] = useState(1);
   let [isShowing, setShowing] = useState(false);
   let [day, setDay] = useState({});
+  let [week, setWeek] = useState([]);
   let [calenderData] = useState(JSON.parse(localStorage.getItem("workouts")));
 
   return (
@@ -24,6 +26,7 @@ function Calender() {
             setSeed={setSeed}
             day={day}
             calenderData={calenderData}
+            week={week}
           />
         )}
         <table>
@@ -49,6 +52,7 @@ function Calender() {
                       setShowing(!isShowing);
                       setSeed((seed += 1));
                       setDay(day);
+                      setWeek(week)
                     };
 
                     return (
@@ -83,6 +87,7 @@ function Calender() {
                       setShowing(!isShowing);
                       setSeed((seed += 1));
                       setDay(day);
+                      setWeek(week)
                     };
                     return (
                       <td key={day.id} className="entry">
@@ -144,6 +149,7 @@ function ExpandedPreview({
   seed,
   setSeed,
   calenderData,
+  week
 }) {
   let [currentWorkout, setCurrentWorkout] = useState({});
   let [isCurrentWorkout, setIsCurrentWorkout] = useState(false);
@@ -197,7 +203,9 @@ function ExpandedPreview({
           <AddItemView day={day} seed={seed} setSeed={setSeed}></AddItemView>
         )}
       </div>
-      <div className="weekView"></div>
+      <div className="weekView">
+        <Weekview week={week}/>
+      </div>
       <button className="expand" onClick={toggleShowing}>
         {" "}
         &#8598;
