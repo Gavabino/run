@@ -7,7 +7,7 @@ function Weekview( { week }) {
   return (
     <div>
         <p>Total Weekly Mileage: {totalMileage(week)} Miles</p>
-        <p>Total Runs: {totalRuns(week)} Miles</p>
+        <p>Total Runs: {totalRuns(week)} Runs</p>
         <p>Average Mileage Per Run: {averageMileagePerRun(week)} Miles</p>
         <p>Daily Mileage: {totalMileagePerDay(week).join(", ")}</p>
         <LineChart

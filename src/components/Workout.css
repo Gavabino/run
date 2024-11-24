@@ -24,12 +24,39 @@
     margin: 5px;
 }
 
+.workout {
+    border: 3px solid;
+    width: 300px;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFC155;
+    border-color: #FFAA00;
+    border-radius: 15px;
+    margin: 5px;
+}
+
+.race {
+    border: 3px solid;
+    width: 300px;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FF5555;
+    border-color: #FF0000;
+    border-radius: 15px;
+    margin: 5px;
+}
+
 .distance {
     margin-left: 5px;
 }
 
 .time {
     margin-right: 20px;
+    color: #757575;
 }
 
 .delete {

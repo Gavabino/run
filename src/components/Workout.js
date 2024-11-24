@@ -13,7 +13,7 @@ function Workout({ display_type, type, distance, time, deleteFunction, onClick }
         </p>
         <p className="time">
           Estimated Time: <br />
-          {time}
+          {time} Minutes
         </p>
         </div>
         <FontAwesomeIcon
