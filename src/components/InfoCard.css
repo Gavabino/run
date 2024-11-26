@@ -1,11 +1,9 @@
 .container-left {
     font-family: "Inter", sans-serif;
-    border: 2px solid black;
     width: 60vw;
     height: 50%;
     margin: 10px;
     display: flex;
-    border-radius: 15px;
     background: rgba(255, 255, 255, 0.75);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -16,13 +14,11 @@
 
 .container-right {
     font-family: "Inter", sans-serif;
-    border: 2px solid black;
     width: 60vw;
     height: 50%;
     margin: 10px;
     display: flex;
     flex-direction: row-reverse;
-    border-radius: 15px;
     background: rgba(255, 255, 255, 0.75);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -50,14 +46,10 @@
 
 .header {
     font-size: 3rem;
-    padding: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 5px 10px;
     text-align: center;
 }
 
 .description {
-    padding: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 5px 10px;
 }

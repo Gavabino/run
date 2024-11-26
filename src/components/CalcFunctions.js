@@ -3,7 +3,7 @@ export const totalMileage = (week) => {
     for (let i = 0; i < week.length; i++) {
         for (let j = 0; j < week[i].workouts.length; j++) {
             mileage += parseFloat(week[i].workouts[j].distance)
-            
+
         }
     }
     return mileage;
@@ -14,7 +14,7 @@ export const totalRuns = (week) => {
     for (let i = 0; i < week.length; i++) {
         for (let j = 0; j < week[i].workouts.length; j++) {
             runs += 1
-            
+
         }
     }
     return runs;
@@ -34,4 +34,8 @@ export const totalMileagePerDay = (week) => {
         mileageArray.push(dayMileage)
     }
     return mileageArray;
+}
+
+export const estimateTotalTime = (distance, pace) => {
+    return distance * pace;
 }
