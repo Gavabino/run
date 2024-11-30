@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import "./Calender.css";
 import ExpandedPreview from "./ExpandedPreview";
 import Nav from "./Nav";
-import EmptyCalender, {setCalenderDates} from "../assets/calenderFunctions";
+import EmptyCalender, {setCalenderDates} from "../utils/calenderFunctions";
 import moment from "moment";
 import {estimateTotalTime, totalMileage, totalRuns} from "./CalcFunctions";
 

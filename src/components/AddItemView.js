@@ -32,11 +32,17 @@ function AddItemView({day, week, seed, setSeed, calenderData, setCalenderData, y
     const onSubmit = (data) => {
         let newWorkout;
         switch (data.display_type) {
+            case "Walk":
+                newWorkout = {...data, type: "walk"}
+                break
             case "Easy Run":
                 newWorkout = {...data, type: "easy"};
                 break;
             case "Recovery Run":
                 newWorkout = {...data, type: "recovery"};
+                break;
+            case "Long Run":
+                newWorkout = {...data, type: "long"};
                 break;
             case "Workout":
                 newWorkout = {...data, type: "workout"};
@@ -64,10 +70,12 @@ function AddItemView({day, week, seed, setSeed, calenderData, setCalenderData, y
                     defaultValue={"default"}
                 >
                     <option disabled value={"default"}>
-                        Select a run type
+                        Select a workout type
                     </option>
-                    <option>Easy Run</option>
+                    <option>Walk</option>
                     <option>Recovery Run</option>
+                    <option>Easy Run</option>
+                    <option>Long Run</option>
                     <option>Workout</option>
                     <option>Race</option>
                 </select>

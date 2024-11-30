@@ -1,51 +1,71 @@
 .easy {
-    border: 3px solid;
     width: 300px;
     height: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #8FFF8D;
-    border-color: #00FF09;
+    border: 3px solid #00FF09;
+    border-radius: 15px;
+    margin: 5px;
+}
+
+.walk {
+    width: 300px;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #BFBFBF;
+    border: 3px solid #666666;
     border-radius: 15px;
     margin: 5px;
 }
 
 .recovery {
-    border: 3px solid;
     width: 300px;
     height: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #8DE2FF;
-    border-color: #00D9FF;
+    border: 3px solid #00D9FF;
+    border-radius: 15px;
+    margin: 5px;
+}
+
+.long {
+    width: 300px;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FDFF6C;
+    border: 3px solid #FFFF00;
     border-radius: 15px;
     margin: 5px;
 }
 
 .workout {
-    border: 3px solid;
     width: 300px;
     height: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #FFC155;
-    border-color: #FFAA00;
+    border: 3px solid #FFAA00;
     border-radius: 15px;
     margin: 5px;
 }
 
 .race {
-    border: 3px solid;
     width: 300px;
     height: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #FF5555;
-    border-color: #FF0000;
+    border: 3px solid #FF0000;
     border-radius: 15px;
     margin: 5px;
 }
