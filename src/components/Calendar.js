@@ -5,6 +5,7 @@ import Nav from "./Nav";
 import EmptyCalendar, {setCalendarDates} from "../utils/calendarFunctions";
 import moment from "moment";
 import {estimateTotalTime, totalMileage, totalRuns} from "../utils/CalcFunctions";
+import {addWorkoutDoc, getWorkoutDoc, unflatten} from "../utils/firestore";
 
 function Calendar() {
     let [seed, setSeed] = useState(1);
@@ -167,6 +168,14 @@ function Calendar() {
                     ))}
                     </tbody>
                 </table>
+                <button onClick={async () => {
+                    await addWorkoutDoc(`${year}-${month}`)
+                    let data = await getWorkoutDoc(`${year}-${month}`)
+                    console.log(data.data)
+                    console.log(unflatten(data.data));
+
+                }}>Add month to file
+                </button>
             </div>
         </div>
     );

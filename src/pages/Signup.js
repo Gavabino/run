@@ -3,8 +3,9 @@ import Nav from "../components/Nav";
 import "./Auth.css"
 import {doCreateUserWithEmailAndPassword} from "../utils/auth";
 import {updateProfile} from "firebase/auth";
-import {auth} from "../utils/firebase.js";
+import {auth, db} from "../utils/firebase.js";
 import {Link} from "react-router-dom";
+import {addUserDoc} from "../utils/firestore";
 
 
 function Signup() {
@@ -22,6 +23,7 @@ function Signup() {
             setIsRegistering(true);
             await doCreateUserWithEmailAndPassword(email, password);
             await updateProfile(auth.currentUser, {displayName: `${firstName} ${lastName}`});
+            await addUserDoc()
         }
     }
     return (
