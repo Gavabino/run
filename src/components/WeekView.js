@@ -1,6 +1,6 @@
 import React from 'react'
 import "./Weekview.css"
-import {totalMileage, totalMileagePerDay, averageMileagePerRun, totalRuns} from "./CalcFunctions"
+import {totalMileage, totalMileagePerDay, averageMileagePerRun, totalRuns} from "../utils/CalcFunctions"
 import {LineChart} from '@mui/x-charts/LineChart';
 
 function WeekView({week}) {

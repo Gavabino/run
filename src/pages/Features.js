@@ -7,7 +7,6 @@ function Features() {
     return (
         <div>
             <Nav currentpage={"Features"}/>
-            <h1>Hello, {currentUser.displayName ? currentUser.displayName : currentUser.email}</h1>
         </div>
     )
 }

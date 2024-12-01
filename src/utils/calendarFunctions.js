@@ -1,6 +1,6 @@
 import moment from "moment";
 
-let EmptyCalender = [
+let EmptyCalendar = [
     [
         {
             id: 1,
@@ -183,7 +183,7 @@ let EmptyCalender = [
     ]
 ];
 
-export function setCalenderDates(calenderData, month, year) {
+export function setCalendarDates(calendarData, month, year) {
     const numberOfDays = moment(`${year}-${month}`, "YYYY-MM").daysInMonth();
     let startDate = moment(`${year}-${month}`);
     let startDay = startDate.day();
@@ -191,9 +191,9 @@ export function setCalenderDates(calenderData, month, year) {
         startDay = 7;
     }
     let currentDay = 1;
-    calenderData?.forEach((week) => {
+    calendarData?.forEach((week) => {
         week.map(day => {
-                if (calenderData.indexOf(week) === 0) {
+                if (calendarData.indexOf(week) === 0) {
                     if (day.id >= startDay) {
                         day.date = `${year}-${month}-${currentDay}`
                         day.dayNum = currentDay
@@ -216,7 +216,7 @@ export function setCalenderDates(calenderData, month, year) {
             }
         )
     });
-    calenderData.forEach((week) => {
+    calendarData.forEach((week) => {
         let disabledCount = 0;
         week.forEach(day => {
             if (Object.values(day).includes(true)) {
@@ -225,11 +225,11 @@ export function setCalenderDates(calenderData, month, year) {
         })
         if (disabledCount === 7) {
             console.log("delete week")
-            calenderData = calenderData.filter((w) => w !== week)
+            calendarData = calendarData.filter((w) => w !== week)
         }
     })
-    return calenderData;
+    return calendarData;
 }
 
 
-export default EmptyCalender;
+export default EmptyCalendar;

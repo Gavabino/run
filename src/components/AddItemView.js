@@ -1,19 +1,17 @@
-import "./Calender.css";
+import "./Calendar.css";
 
 import {useForm} from "react-hook-form";
-import {estimateTotalTime} from "./CalcFunctions";
+import {estimateTotalTime} from "../utils/CalcFunctions";
 
-function AddItemView({day, week, seed, setSeed, calenderData, setCalenderData, year, month}) {
+function AddItemView({day, week, seed, setSeed, calendarData, setCalendarData, year, month}) {
     const {
         register,
         handleSubmit,
         reset,
-        watch,
-        formState: {errors},
     } = useForm();
 
-    const updateWorkoutsInDay = (calenderData, date, newWorkout) => {
-        return calenderData.map((week) =>
+    const updateWorkoutsInDay = (calendarData, date, newWorkout) => {
+        return calendarData.map((week) =>
             week.map((day) =>
                 day.date === date
                     ? {...day, workouts: [...day.workouts, newWorkout]}
@@ -23,9 +21,9 @@ function AddItemView({day, week, seed, setSeed, calenderData, setCalenderData, y
     }
 
     const addWorkout = (newWorkout) => {
-        const updatedCalenderData = updateWorkoutsInDay(calenderData, day.date, newWorkout);
-        setCalenderData(updatedCalenderData);
-        localStorage.setItem(`${year}-${month}`, JSON.stringify(updatedCalenderData));
+        const updatedCalendarData = updateWorkoutsInDay(calendarData, day.date, newWorkout);
+        setCalendarData(updatedCalendarData);
+        localStorage.setItem(`${year}-${month}`, JSON.stringify(updatedCalendarData));
         setSeed((prevSeed) => prevSeed + 1);
     };
 

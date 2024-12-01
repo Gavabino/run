@@ -1,8 +1,8 @@
-import "./Calender.css";
+import "./Calendar.css";
 import React, {useState} from "react";
 import Workout from "./Workout";
 import AddItemView from "./AddItemView";
-import {DetailedView} from "./Calender";
+import {DetailedView} from "./Calendar";
 import WeekView from "./WeekView";
 
 function ExpandedPreview({
@@ -11,8 +11,8 @@ function ExpandedPreview({
                              setShowing,
                              seed,
                              setSeed,
-                             calenderData,
-                             setCalenderData,
+                             calendarData,
+                             setCalendarData,
                              week,
                              year,
                              month,
@@ -20,7 +20,7 @@ function ExpandedPreview({
     let [currentWorkout, setCurrentWorkout] = useState({});
     let [isCurrentWorkout, setIsCurrentWorkout] = useState(false);
 
-    const currentDay = calenderData
+    const currentDay = calendarData
         .flat()
         .find((d) => d.date === day.date) || {...day, workouts: []};
 
@@ -35,7 +35,7 @@ function ExpandedPreview({
                 {currentDay.workouts?.map((workout) => {
                     const removeWorkoutFromDay = (workout, date) => {
                         console.log("Remove workout", workout);
-                        return calenderData.map((week) =>
+                        return calendarData.map((week) =>
                             week.map((day) =>
                                 currentDay.date === date
                                     ? {...day, workouts: day.workouts.filter((w) => w !== workout)}
@@ -44,9 +44,9 @@ function ExpandedPreview({
                         );
                     };
                     const removeItem = () => {
-                        const updatedCalenderData = removeWorkoutFromDay(workout, day.date);
-                        setCalenderData(updatedCalenderData); // Notify parent of the update
-                        localStorage.setItem(`${year}-${month}`, JSON.stringify(updatedCalenderData));
+                        const updatedCalendarData = removeWorkoutFromDay(workout, day.date);
+                        setCalendarData(updatedCalendarData); // Notify parent of the update
+                        localStorage.setItem(`${year}-${month}`, JSON.stringify(updatedCalendarData));
                         setSeed((prevSeed) => prevSeed + 1);
 
                         if (currentWorkout === workout) {
@@ -91,15 +91,15 @@ function ExpandedPreview({
                         week={week}
                         seed={seed}
                         setSeed={setSeed}
-                        calenderData={calenderData}
-                        setCalenderData={setCalenderData}
+                        calendarData={calendarData}
+                        setCalendarData={setCalendarData}
                         year={year}
                         month={month}
                     ></AddItemView>
                 )}
             </div>
             <div className="weekView">
-                <WeekView week={week}/>
+                <WeekView week={week} calendarData={calendarData}/>
             </div>
             <button className="collapse" onClick={toggleShowing}>
                 X

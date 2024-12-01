@@ -1,7 +1,6 @@
-import React, {useRef, useState} from "react";
+import React, {useState} from "react";
 import Nav from "../components/Nav";
 import "./Auth.css"
-import {useAuth} from "../contexts/AuthContext";
 import {doCreateUserWithEmailAndPassword} from "../utils/auth";
 import {updateProfile} from "firebase/auth";
 import {auth} from "../utils/firebase.js";

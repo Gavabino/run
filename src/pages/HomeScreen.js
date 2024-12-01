@@ -1,13 +1,18 @@
 import React from "react";
-import Calender from "../components/Calender";
+import Calendar from "../components/Calendar";
 import "./HomeScreen.css"
+import {useAuth} from "../contexts/AuthContext";
 
 function HomeScreen() {
-  return (
-    <div className="container">
-      <Calender />
-    </div>
-  );
+    const {currentUser} = useAuth()
+    return (
+        <div className="container">
+            <Calendar/>
+            {currentUser != null ?
+                <h1>Hello, {currentUser.displayName ? currentUser.displayName : currentUser.email}</h1> :
+                <h1>Sign in to continue</h1>}
+        </div>
+    );
 }
 
 export default HomeScreen;

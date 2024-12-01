@@ -1,19 +1,19 @@
 import React, {useEffect, useState} from "react";
-import "./Calender.css";
+import "./Calendar.css";
 import ExpandedPreview from "./ExpandedPreview";
 import Nav from "./Nav";
-import EmptyCalender, {setCalenderDates} from "../utils/calenderFunctions";
+import EmptyCalendar, {setCalendarDates} from "../utils/calendarFunctions";
 import moment from "moment";
-import {estimateTotalTime, totalMileage, totalRuns} from "./CalcFunctions";
+import {estimateTotalTime, totalMileage, totalRuns} from "../utils/CalcFunctions";
 
-function Calender() {
+function Calendar() {
     let [seed, setSeed] = useState(1);
     let [isShowing, setShowing] = useState(false);
     let [day, setDay] = useState({});
     let [week, setWeek] = useState([]);
     let [month, setMonth] = useState(moment().month() + 1);
     let [year, setYear] = useState(moment().year());
-    let [calenderData, setCalenderData] = useState([]);
+    let [calendarData, setCalendarData] = useState([]);
 
     useEffect(() => {
         const fetchCalendarData = () => {
@@ -21,7 +21,7 @@ function Calender() {
             let data = localStorage.getItem(key);
 
             if (!data) {
-                data = setCalenderDates(EmptyCalender, month, year);
+                data = setCalendarDates(EmptyCalendar, month, year);
                 localStorage.setItem(key, JSON.stringify(data));
                 console.log("Entry created");
             } else {
@@ -29,7 +29,7 @@ function Calender() {
                 console.log("Entry retrieved");
             }
 
-            setCalenderData(data);
+            setCalendarData(data);
         };
 
         fetchCalendarData();
@@ -64,8 +64,8 @@ function Calender() {
                         seed={seed}
                         setSeed={setSeed}
                         day={day}
-                        calenderData={calenderData}
-                        setCalenderData={setCalenderData}
+                        calendarData={calendarData}
+                        setCalendarData={setCalendarData}
                         week={week}
                         year={year}
                         month={month}
@@ -98,8 +98,8 @@ function Calender() {
                     </tr>
                     </thead>
                     <tbody>
-                    {calenderData?.map((week) => (
-                        <tr key={calenderData.indexOf(week)}>
+                    {calendarData?.map((week) => (
+                        <tr key={calendarData.indexOf(week)}>
                             {week.map((day) => {
                                 if (day.workouts.length === 0) {
                                     const toggleShowing = () => {
@@ -172,7 +172,7 @@ function Calender() {
     );
 }
 
-export default Calender;
+export default Calendar;
 
 export function WorkoutPreview({display_type, type, distance}) {
     return (
