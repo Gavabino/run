@@ -3,7 +3,7 @@ import Nav from "../components/Nav";
 import "./Auth.css"
 import {doCreateUserWithEmailAndPassword} from "../utils/auth";
 import {updateProfile} from "firebase/auth";
-import {auth, db} from "../utils/firebase.js";
+import {auth} from "../utils/firebase.js";
 import {Link} from "react-router-dom";
 import {addUserDoc} from "../utils/firestore";
 
@@ -11,9 +11,9 @@ import {addUserDoc} from "../utils/firestore";
 function Signup() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [confirmPassword, setConfirmPassword] = useState("");
+    //const [confirmPassword, setConfirmPassword] = useState("");
     const [isRegistering, setIsRegistering] = useState(false);
-    const [errorMessage, setErrorMessage] = useState("");
+    //const [errorMessage, setErrorMessage] = useState("");
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
 
@@ -37,9 +37,9 @@ function Signup() {
                     <input className="input" placeholder="Enter your password" type="password"
                            onChange={(e) => setPassword(e.target.value)}
                            required={true}/>
-                    <input className="input" placeholder="Confirm your password" type="password"
+                    {/*<input className="input" placeholder="Confirm your password" type="password"
                            onChange={(e) => setConfirmPassword(e.target.value)}
-                           required={true}/>
+                           required={true}/>*/}
                     <input className="input" placeholder="Enter first name" type="name"
                            onChange={(e) => setFirstName(e.target.value)}/>
                     <input className="input" placeholder="Enter last name" type="name"

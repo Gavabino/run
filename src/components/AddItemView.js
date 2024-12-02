@@ -2,8 +2,9 @@ import "./Calendar.css";
 
 import {useForm} from "react-hook-form";
 import {estimateTotalTime} from "../utils/CalcFunctions";
+import {addWorkoutDoc} from "../utils/firestore";
 
-function AddItemView({day, week, seed, setSeed, calendarData, setCalendarData, year, month}) {
+function AddItemView({day, setSeed, calendarData, setCalendarData, year, month}) {
     const {
         register,
         handleSubmit,
@@ -20,14 +21,14 @@ function AddItemView({day, week, seed, setSeed, calendarData, setCalendarData, y
         );
     }
 
-    const addWorkout = (newWorkout) => {
+    const addWorkout = async (newWorkout) => {
         const updatedCalendarData = updateWorkoutsInDay(calendarData, day.date, newWorkout);
         setCalendarData(updatedCalendarData);
-        localStorage.setItem(`${year}-${month}`, JSON.stringify(updatedCalendarData));
+        await addWorkoutDoc(`${year}-${month}`, updatedCalendarData.flat());
         setSeed((prevSeed) => prevSeed + 1);
     };
 
-    const onSubmit = (data) => {
+    const onSubmit = async (data) => {
         let newWorkout;
         switch (data.display_type) {
             case "Walk":
@@ -52,7 +53,7 @@ function AddItemView({day, week, seed, setSeed, calendarData, setCalendarData, y
                 break;
         }
         newWorkout = {...newWorkout, time: estimateTotalTime(newWorkout.distance, 8.5)};
-        addWorkout(newWorkout);
+        await addWorkout(newWorkout);
         reset();
     };
 

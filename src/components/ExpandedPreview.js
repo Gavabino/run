@@ -4,6 +4,7 @@ import Workout from "./Workout";
 import AddItemView from "./AddItemView";
 import {DetailedView} from "./Calendar";
 import WeekView from "./WeekView";
+import {addWorkoutDoc} from "../utils/firestore";
 
 function ExpandedPreview({
                              day,
@@ -43,10 +44,10 @@ function ExpandedPreview({
                             )
                         );
                     };
-                    const removeItem = () => {
+                    const removeItem = async () => {
                         const updatedCalendarData = removeWorkoutFromDay(workout, day.date);
                         setCalendarData(updatedCalendarData); // Notify parent of the update
-                        localStorage.setItem(`${year}-${month}`, JSON.stringify(updatedCalendarData));
+                        await addWorkoutDoc(`${year}-${month}`, updatedCalendarData.flat());
                         setSeed((prevSeed) => prevSeed + 1);
 
                         if (currentWorkout === workout) {

@@ -8,7 +8,7 @@ export const addUserDoc = async () => {
             return;
         }
 
-        const userDocRef = await setDoc(doc(db, "users", `${auth.currentUser.uid}`), {
+        await setDoc(doc(db, "users", `${auth.currentUser.uid}`), {
             name: auth.currentUser.displayName || "Anonymous",
             email: auth.currentUser.email,
             uid: auth.currentUser.uid,
@@ -20,15 +20,14 @@ export const addUserDoc = async () => {
         console.error("Error adding document: ", error);
     }
 }
-export const addWorkoutDoc = async (date) => {
+export const addWorkoutDoc = async (date, data) => {
     try {
         if (!auth.currentUser) {
             console.error("No user is signed in.");
             return;
         }
-        let data = JSON.parse(localStorage.getItem(date)).flat()
-        const userWorkoutDocRef = await setDoc(doc(db, `${auth.currentUser.uid}`, date), {
-            data: data
+        await setDoc(doc(db, `${auth.currentUser.uid}`, date), {
+            data: data.flat()
         })
 
         console.log("Document written with ID: ", auth.currentUser.uid);
@@ -47,4 +46,15 @@ export const unflatten = (array) => {
         result.push(array.slice(i, i + 7));
     }
     return result;
+}
+
+export const doesDocumentExist = async (documentKey) => {
+    try {
+        const docRef = doc(db, auth.currentUser.uid, documentKey);
+        const docSnap = await getDoc(docRef);
+        return docSnap.exists();
+    } catch (error) {
+        console.error("Error checking document existence: ", error);
+        throw error;
+    }
 }

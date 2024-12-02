@@ -2,7 +2,7 @@ import React, {createContext, useContext, useEffect, useState} from 'react';
 import {auth} from '../utils/firebase';
 import {onAuthStateChanged} from 'firebase/auth';
 
-const AuthContext = createContext();
+const AuthContext = createContext(undefined);
 
 export function useAuth() {
     return useContext(AuthContext);

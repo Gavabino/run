@@ -5,7 +5,7 @@ import Nav from "./Nav";
 import EmptyCalendar, {setCalendarDates} from "../utils/calendarFunctions";
 import moment from "moment";
 import {estimateTotalTime, totalMileage, totalRuns} from "../utils/CalcFunctions";
-import {addWorkoutDoc, getWorkoutDoc, unflatten} from "../utils/firestore";
+import {addWorkoutDoc, doesDocumentExist, getWorkoutDoc, unflatten} from "../utils/firestore";
 
 function Calendar() {
     let [seed, setSeed] = useState(1);
@@ -16,24 +16,29 @@ function Calendar() {
     let [year, setYear] = useState(moment().year());
     let [calendarData, setCalendarData] = useState([]);
 
+    const fetchCalendarData = async () => {
+        const key = `${year}-${month}`;
+        let doc = await getWorkoutDoc(key);
+        let data;
+
+        if (await doesDocumentExist(key)) {
+            data = unflatten(doc.data);
+            console.log("Entry retrieved");
+        } else {
+            let newCalendar = setCalendarDates(EmptyCalendar, month, year)
+            await addWorkoutDoc(key, newCalendar);
+            doc = await getWorkoutDoc(key);
+            data = unflatten(doc.data);
+            console.log("Entry created");
+        }
+
+        setCalendarData(data);
+    };
+
     useEffect(() => {
-        const fetchCalendarData = () => {
-            const key = `${year}-${month}`;
-            let data = localStorage.getItem(key);
-
-            if (!data) {
-                data = setCalendarDates(EmptyCalendar, month, year);
-                localStorage.setItem(key, JSON.stringify(data));
-                console.log("Entry created");
-            } else {
-                data = JSON.parse(data);
-                console.log("Entry retrieved");
-            }
-
-            setCalendarData(data);
-        };
-
-        fetchCalendarData();
+        fetchCalendarData().catch((err) => {
+            console.log(err);
+        });
     }, [month, year]);
 
     const increaseMonthDate = () => {
@@ -173,6 +178,7 @@ function Calendar() {
                     let data = await getWorkoutDoc(`${year}-${month}`)
                     console.log(data.data)
                     console.log(unflatten(data.data));
+                    console.log(calendarData)
 
                 }}>Add month to file
                 </button>
@@ -183,7 +189,7 @@ function Calendar() {
 
 export default Calendar;
 
-export function WorkoutPreview({display_type, type, distance}) {
+export function WorkoutPreview({display_type, type}) {
     return (
         <div className={type + "preview"}>
             <p>{display_type}</p>
