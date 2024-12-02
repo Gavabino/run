@@ -24,7 +24,7 @@ function Signin() {
     }
     return (
         <div className="page">
-            <Nav currentpage={"Sign In"}/>
+            <Nav currentPage={"Sign In"}/>
             <div className="card">
                 <form onSubmit={handleSubmit} className="form">
                     <input className="input" placeholder="Enter your email" type="email" value={email}
