@@ -1,15 +1,18 @@
 import "./Calendar.css";
 
 import {useForm} from "react-hook-form";
-import {estimateTotalTime} from "../utils/CalcFunctions";
-import {addWorkoutDoc} from "../utils/firestore";
+import {estimateTotalTime} from "../../utils/CalcFunctions";
+import {addWorkoutDoc} from "../../utils/firestore";
+import useCalendar from "../../hooks/useCalendar";
 
-function AddItemView({day, setSeed, calendarData, setCalendarData, year, month}) {
+function AddItemView({day, setSeed, calendarData, setCalendarData}) {
     const {
         register,
         handleSubmit,
         reset,
     } = useForm();
+
+    let {month, year} = useCalendar();
 
     const updateWorkoutsInDay = (calendarData, date, newWorkout) => {
         return calendarData.map((week) =>

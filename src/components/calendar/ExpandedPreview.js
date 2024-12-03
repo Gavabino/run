@@ -2,9 +2,10 @@ import "./Calendar.css";
 import React, {useState} from "react";
 import Workout from "./Workout";
 import AddItemView from "./AddItemView";
-import {DetailedView} from "./Calendar";
+import DetailedView from "./DetailedView";
 import WeekView from "./WeekView";
-import {addWorkoutDoc} from "../utils/firestore";
+import {addWorkoutDoc} from "../../utils/firestore";
+import useCalendar from "../../hooks/useCalendar";
 
 function ExpandedPreview({
                              day,
@@ -15,11 +16,11 @@ function ExpandedPreview({
                              calendarData,
                              setCalendarData,
                              week,
-                             year,
-                             month,
                          }) {
     let [currentWorkout, setCurrentWorkout] = useState({});
     let [isCurrentWorkout, setIsCurrentWorkout] = useState(false);
+
+    let {month, year} = useCalendar();
 
     const currentDay = calendarData
         .flat()
@@ -94,8 +95,6 @@ function ExpandedPreview({
                         setSeed={setSeed}
                         calendarData={calendarData}
                         setCalendarData={setCalendarData}
-                        year={year}
-                        month={month}
                     ></AddItemView>
                 )}
             </div>
