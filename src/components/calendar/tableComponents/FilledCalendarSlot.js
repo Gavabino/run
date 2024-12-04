@@ -1,8 +1,10 @@
 import "../Calendar.css"
 import WorkoutPreview from "../WorkoutPreview";
 import React from "react";
+import {useCalendar} from "../../../contexts/CalendarContext";
 
-const FilledCalendarSlot = ({toggleShowing, day}) => {
+const FilledCalendarSlot = ({day, week}) => {
+    const {toggleShowing} = useCalendar()
     return (
         <td key={day.date} className={day.disabled}>
             {"dayNum" in day && <p className="date">{day.dayNum}</p>}
@@ -14,10 +16,10 @@ const FilledCalendarSlot = ({toggleShowing, day}) => {
                         />
                     );
                 })}
-                <button onClick={toggleShowing} className="add">
+                <button onClick={() => toggleShowing(day, week)} className="add">
                     Add Workout
                 </button>
-                <button className="expand" onClick={toggleShowing}>
+                <button className="expand" onClick={() => toggleShowing(day, week)}>
                     {" "}
                     &#8600;
                 </button>

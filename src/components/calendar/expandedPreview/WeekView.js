@@ -1,11 +1,16 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {totalMileage, totalMileagePerDay, averageMileagePerRun, totalRuns} from "../../../utils/CalcFunctions"
 import {LineChart} from '@mui/x-charts/LineChart';
 import {useCalendar} from "../../../contexts/CalendarContext";
 
 function WeekView() {
-    const {week} = useCalendar()
+    const {week} = useCalendar();
 
+
+    useEffect(() => {
+        console.log("Week state updated:", week);
+    }, [week]);
+    
     return (
         <div className="weekView">
             <p>Total Weekly Mileage: {totalMileage(week)} Miles</p>

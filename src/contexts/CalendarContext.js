@@ -8,11 +8,16 @@ const CalendarContext = createContext(undefined);
 export const useCalendar = () => {
     return useContext(CalendarContext);
 }
+
 export const CalendarProvider = ({children}) => {
     const [date, setDate] = useState({month: moment().month() + 1, year: moment().year()});
     const [calendarData, setCalendarData] = useState([]);
     let [day, setDay] = useState({});
     let [week, setWeek] = useState([]);
+    let [isShowing, setShowing] = useState(false);
+    let [currentWorkout, setCurrentWorkout] = useState({});
+    let [isCurrentWorkout, setIsCurrentWorkout] = useState(false);
+
     const {EmptyCalendar, setCalendarDates} = useCalendarFunctions()
 
     const increaseMonthDate = useCallback(() => {
@@ -66,6 +71,41 @@ export const CalendarProvider = ({children}) => {
             console.error(error);
         });
     }, [month, year]);
+
+    const toggleShowing = (day, week) => {
+        setShowing(!isShowing);
+        setDay(day);
+        setWeek(week);
+    }
+
+    const setActiveWorkout = (workout) => {
+        setCurrentWorkout(workout);
+        setIsCurrentWorkout(true);
+    };
+
+    const removeWorkoutFromDay = (workout, date, currentDay) => {
+        console.log("Remove workout", workout);
+        return calendarData.map((week) =>
+            week.map((day) =>
+                currentDay.date === date
+                    ? {...day, workouts: day.workouts.filter((w) => w !== workout)}
+                    : day
+            )
+        );
+    };
+
+    const removeItem = async (workout, currentDay) => {
+        const updatedCalendarData = removeWorkoutFromDay(workout, day.date, currentDay);
+        setCalendarData(updatedCalendarData); // Notify parent of the update
+        await addWorkoutDoc(`${year}-${month}`, updatedCalendarData.flat());
+
+        if (currentWorkout === workout) {
+            setCurrentWorkout({});
+            setIsCurrentWorkout(false);
+        }
+        console.log("Deleted workout:", workout);
+    };
+
     const value = {
         month,
         year,
@@ -77,7 +117,15 @@ export const CalendarProvider = ({children}) => {
         day,
         setDay,
         week,
-        setWeek
+        setWeek,
+        toggleShowing,
+        isShowing,
+        setShowing,
+        currentWorkout,
+        isCurrentWorkout,
+        setIsCurrentWorkout,
+        setActiveWorkout,
+        removeItem,
     }
     return (
         <CalendarContext.Provider value={value}>
