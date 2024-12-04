@@ -1,6 +1,7 @@
 import React from "react";
 
-function WorkoutPreview({display_type, type}) {
+function WorkoutPreview({workout}) {
+    const {type, display_type} = workout;
     return (
         <div className={type + "preview"}>
             <p>{display_type}</p>

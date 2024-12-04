@@ -1,9 +1,9 @@
 import {createContext, useCallback, useContext, useEffect, useState} from "react";
 import moment from "moment";
 import {addWorkoutDoc, doesDocumentExist, getWorkoutDoc, unflatten} from "../utils/firestore";
-import EmptyCalendar, {setCalendarDates} from "../utils/calendarFunctions";
+import useCalendarFunctions from "../hooks/useCalendarFunctions";
 
-const CalendarContext = createContext();
+const CalendarContext = createContext(undefined);
 
 export const useCalendar = () => {
     return useContext(CalendarContext);
@@ -13,6 +13,7 @@ export const CalendarProvider = ({children}) => {
     const [calendarData, setCalendarData] = useState([]);
     let [day, setDay] = useState({});
     let [week, setWeek] = useState([]);
+    const {EmptyCalendar, setCalendarDates} = useCalendarFunctions()
 
     const increaseMonthDate = useCallback(() => {
         setDate((prevDate) => {

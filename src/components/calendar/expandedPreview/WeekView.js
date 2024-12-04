@@ -7,7 +7,7 @@ function WeekView() {
     const {week} = useCalendar()
 
     return (
-        <div>
+        <div className="weekView">
             <p>Total Weekly Mileage: {totalMileage(week)} Miles</p>
             <p>Total Runs: {totalRuns(week)} Runs</p>
             <p>Average Mileage Per Run: {averageMileagePerRun(week)} Miles</p>

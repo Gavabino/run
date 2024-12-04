@@ -10,10 +10,7 @@ const FilledCalendarSlot = ({toggleShowing, day}) => {
                 {day.workouts.map((workout) => {
                     return (
                         <WorkoutPreview
-                            display_type={workout.display_type}
-                            type={workout.type}
-                            distance={workout.distance}
-                            key={workout.id}
+                            workout={workout}
                         />
                     );
                 })}

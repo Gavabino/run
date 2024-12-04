@@ -20,10 +20,6 @@ function ExpandedPreview({
         .flat()
         .find((d) => d.date === day.date) || {...day, workouts: []};
 
-    const toggleShowing = () => {
-        setShowing(!isShowing);
-    };
-
     return (
         <div className="excontainer">
             <div className="workoutContainer">
@@ -56,10 +52,7 @@ function ExpandedPreview({
 
                     return (
                         <Workout
-                            display_type={workout.display_type}
-                            type={workout.type}
-                            distance={workout.distance}
-                            time={workout.time}
+                            workout={workout}
                             deleteFunction={removeItem}
                             onClick={setActiveWorkout}
                             key={day.workouts.indexOf(workout)}
@@ -82,15 +75,11 @@ function ExpandedPreview({
                     <AddItemView
                         day={day}
                         week={week}
-                        calendarData={calendarData}
-                        setCalendarData={setCalendarData}
                     ></AddItemView>
                 )}
             </div>
-            <div className="weekView">
-                <WeekView week={week} calendarData={calendarData}/>
-            </div>
-            <button className="collapse" onClick={toggleShowing}>
+            <WeekView/>
+            <button className="collapse" onClick={() => setShowing(!isShowing)}>
                 X
             </button>
         </div>
