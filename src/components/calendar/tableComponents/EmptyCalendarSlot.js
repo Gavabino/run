@@ -1,7 +1,7 @@
-import "./Calendar.css"
+import "../Calendar.css"
 import React from "react";
 
-const EmptyCalendarSlot = ({day, toggleShowing}) => {
+const EmptyCalendarSlot = ({toggleShowing, day}) => {
     return (
         <td key={day.date} className={"" + day.disabled}>
             <div className="entryContainer">

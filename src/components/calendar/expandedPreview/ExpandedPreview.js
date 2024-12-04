@@ -1,26 +1,20 @@
-import "./Calendar.css";
+import "../Calendar.css";
 import React, {useState} from "react";
-import Workout from "./Workout";
+import Workout from "../Workout";
 import AddItemView from "./AddItemView";
 import DetailedView from "./DetailedView";
 import WeekView from "./WeekView";
-import {addWorkoutDoc} from "../../utils/firestore";
-import useCalendar from "../../hooks/useCalendar";
+import {addWorkoutDoc} from "../../../utils/firestore";
+import {useCalendar} from "../../../contexts/CalendarContext";
 
 function ExpandedPreview({
-                             day,
                              isShowing,
                              setShowing,
-                             seed,
-                             setSeed,
-                             calendarData,
-                             setCalendarData,
-                             week,
                          }) {
     let [currentWorkout, setCurrentWorkout] = useState({});
     let [isCurrentWorkout, setIsCurrentWorkout] = useState(false);
 
-    let {month, year} = useCalendar();
+    let {day, week, month, year, calendarData, setCalendarData} = useCalendar();
 
     const currentDay = calendarData
         .flat()
@@ -28,7 +22,6 @@ function ExpandedPreview({
 
     const toggleShowing = () => {
         setShowing(!isShowing);
-        setSeed((prevSeed) => prevSeed + 1);
     };
 
     return (
@@ -49,7 +42,6 @@ function ExpandedPreview({
                         const updatedCalendarData = removeWorkoutFromDay(workout, day.date);
                         setCalendarData(updatedCalendarData); // Notify parent of the update
                         await addWorkoutDoc(`${year}-${month}`, updatedCalendarData.flat());
-                        setSeed((prevSeed) => prevSeed + 1);
 
                         if (currentWorkout === workout) {
                             setCurrentWorkout({});
@@ -60,7 +52,6 @@ function ExpandedPreview({
                     const setActiveWorkout = () => {
                         setCurrentWorkout(workout);
                         setIsCurrentWorkout(true);
-                        setSeed((prevSeed) => prevSeed + 1);
                     };
 
                     return (
@@ -91,8 +82,6 @@ function ExpandedPreview({
                     <AddItemView
                         day={day}
                         week={week}
-                        seed={seed}
-                        setSeed={setSeed}
                         calendarData={calendarData}
                         setCalendarData={setCalendarData}
                     ></AddItemView>

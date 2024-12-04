@@ -1,4 +1,4 @@
-import "./Calendar.css"
+import "../Calendar.css"
 import React from "react";
 
 const TableHeader = () => {

@@ -1,9 +1,11 @@
 import React from 'react'
-import "./Weekview.css"
-import {totalMileage, totalMileagePerDay, averageMileagePerRun, totalRuns} from "../../utils/CalcFunctions"
+import {totalMileage, totalMileagePerDay, averageMileagePerRun, totalRuns} from "../../../utils/CalcFunctions"
 import {LineChart} from '@mui/x-charts/LineChart';
+import {useCalendar} from "../../../contexts/CalendarContext";
 
-function WeekView({week}) {
+function WeekView() {
+    const {week} = useCalendar()
+
     return (
         <div>
             <p>Total Weekly Mileage: {totalMileage(week)} Miles</p>

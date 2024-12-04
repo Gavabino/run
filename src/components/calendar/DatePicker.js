@@ -1,7 +1,7 @@
 import "./Calendar.css"
 import moment from "moment/moment";
 import React from "react";
-import useCalendar from "../../hooks/useCalendar";
+import {useCalendar} from "../../contexts/CalendarContext";
 
 const DatePicker = () => {
     let {month, year, increaseMonthDate, decreaseMonthDate} = useCalendar()
@@ -9,7 +9,7 @@ const DatePicker = () => {
     return (
         <caption>
             <div className="datePicker">
-                <button onClick={decreaseMonthDate}>&lt;</button>
+                <button onClick={() => decreaseMonthDate()}>&lt;</button>
                 <div>
                     {moment()
                             .month(month - 1)
@@ -17,7 +17,7 @@ const DatePicker = () => {
                         " " +
                         year}
                 </div>
-                <button onClick={increaseMonthDate}>&gt;</button>
+                <button onClick={() => increaseMonthDate()}>&gt;</button>
             </div>
         </caption>
     )
