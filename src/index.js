@@ -13,12 +13,12 @@ import Signin from './pages/Signin';
 import Usage from './pages/Usage';
 import App from './pages/App';
 import HomeScreen from './pages/HomeScreen';
-import {AuthProvider} from "./contexts/AuthContext";
+import {AuthProvider, useAuth} from "./contexts/AuthContext";
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <Home/>,
+        element: <Home/>
     },
     {
         path: "/features",

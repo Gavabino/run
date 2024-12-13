@@ -11,20 +11,34 @@ function Signin() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [isSigningIn, setIsSigningIn] = useState(false);
-    //const [errorMessage, setErrorMessage] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
+    const [loading, setLoading] = useState(false);
     const {currentUser} = useAuth();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        setErrorMessage("")
         if (!isSigningIn) {
             setIsSigningIn(true);
-            await doSignInWithEmailAndPassword(email, password);
+            setLoading(true);
+            try {
+                await doSignInWithEmailAndPassword(email, password)
+            } catch (error) {
+                setIsSigningIn(false);
+                setLoading(false);
+                if (error.message === "Firebase: Error (auth/network-request-failed).") {
+                    setErrorMessage("Network error");
+                } else {
+                    setErrorMessage(error.message);
+                }
+            }
         }
         console.log(currentUser);
+        setLoading(false);
     }
     return (
         <div className="page">
-            <Nav currentPage={"Sign In"}/>
+            <Nav activeIndex={5}/>
             <div className="card">
                 <form onSubmit={handleSubmit} className="form">
                     <input className="input" placeholder="Enter your email" type="email" value={email}
@@ -38,6 +52,8 @@ function Signin() {
                 <button className="sign" onClick={() => doSignOut()}>Sign Out</button>
                 <p className="redirect">Don't have an account? <Link to={"/signup"}>Sign Up</Link></p>
             </div>
+            {loading && <p>Loading...</p>}
+            {errorMessage && <p>{errorMessage}</p>}
         </div>
     );
 }

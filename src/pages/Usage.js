@@ -4,7 +4,7 @@ import Nav from "../components/Nav";
 function Usage() {
     return (
         <div>
-            <Nav currentPage={"Usage"}/>
+            <Nav activeIndex={2}/>
         </div>
     );
 }

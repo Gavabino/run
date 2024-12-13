@@ -2,39 +2,17 @@ import React from "react";
 import "./Nav.css";
 import {Link} from "react-router-dom";
 import logo from "../assets/logo.png";
+import {useAuth} from "../contexts/AuthContext";
 
-function Nav({currentPage}) {
-    let activeIndex;
-    switch (currentPage) {
-        case "Home":
-            activeIndex = 0;
-            break;
-        case "Features":
-            activeIndex = 1;
-            break;
-        case "Usage":
-            activeIndex = 2;
-            break;
-        case "App":
-            activeIndex = 3;
-            break;
-        case "Sign Up":
-            activeIndex = 4;
-            break;
-        case "Sign In":
-            activeIndex = 5;
-            break;
-        default:
-            activeIndex = 0;
-            break;
-    }
+function Nav({activeIndex}) {
+    const {currentUser} = useAuth()
     return (
         <div className="navbar">
             {/* Logo */}
             <img alt="logo" className="logo" src={logo}/>
             <div className="buttons">
                 {/* Home */}
-                <Link className={activeIndex === 0 ? "activeLink" : "link"} to={"/"}>
+                <Link className={activeIndex === 0 ? "activeLink" : "link"} to={currentUser ? "/homescreen" : "/"}>
                     Home
                 </Link>
                 {/* Features */}
@@ -46,7 +24,7 @@ function Nav({currentPage}) {
                 {/* Usage */}
                 <Link className={activeIndex === 2 ? "activeLink" : "link"} to={"/usage"}>Usage</Link>
                 {/* App */}
-                <Link className={activeIndex === 3 ? "activeLink" : "link"} to={"/homescreen"}>App</Link>
+                <Link className={activeIndex === 3 ? "activeLink" : "link"} to={"/app"}>App</Link>
                 {/* Sign in */}
                 <Link className={activeIndex === 5 ? "activeLogin" : "login"} to={"/signin"}>Sign In</Link>
                 {/* Sign up */}

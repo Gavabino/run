@@ -2,7 +2,6 @@ import "../Calendar.css";
 
 import {useForm} from "react-hook-form";
 import {estimateTotalTime} from "../../../utils/CalcFunctions";
-import {addWorkoutDoc} from "../../../utils/firestore";
 import {useCalendar} from "../../../contexts/CalendarContext";
 
 function AddItemView() {
@@ -12,23 +11,7 @@ function AddItemView() {
         reset,
     } = useForm();
 
-    let {day, month, year, calendarData, setCalendarData} = useCalendar();
-
-    const updateWorkoutsInDay = (calendarData, date, newWorkout) => {
-        return calendarData.map((week) =>
-            week.map((day) =>
-                day.date === date
-                    ? {...day, workouts: [...day.workouts, newWorkout]}
-                    : day
-            )
-        );
-    }
-
-    const addWorkout = async (newWorkout) => {
-        const updatedCalendarData = updateWorkoutsInDay(calendarData, day.date, newWorkout);
-        setCalendarData(updatedCalendarData);
-        await addWorkoutDoc(`${year}-${month}`, updatedCalendarData.flat());
-    };
+    let {addWorkout} = useCalendar();
 
     const onSubmit = async (data) => {
         let newWorkout;

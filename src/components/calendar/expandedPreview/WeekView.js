@@ -4,13 +4,14 @@ import {LineChart} from '@mui/x-charts/LineChart';
 import {useCalendar} from "../../../contexts/CalendarContext";
 
 function WeekView() {
-    const {week} = useCalendar();
+    const {week, calendarData, findWeekInCalendar} = useCalendar();
 
 
     useEffect(() => {
-        console.log("Week state updated:", week);
-    }, [week]);
-    
+        findWeekInCalendar(week);
+        console.log("Week updated")
+    }, [calendarData]);
+
     return (
         <div className="weekView">
             <p>Total Weekly Mileage: {totalMileage(week)} Miles</p>

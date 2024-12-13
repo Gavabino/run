@@ -48,13 +48,12 @@
 .features {
     display: flex;
     flex-direction: column;
-
     padding-top: 100px;
     position: relative;
     width: 100%;
     height: 800px;
     align-items: center;
-    background-image: url(../assets/layered-waves-haikei.svg);
+    background-image: url(../assets/layered-waves-haikei2.svg);
     background-repeat: no-repeat;
     background-size: cover;
 }

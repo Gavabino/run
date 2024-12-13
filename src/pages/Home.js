@@ -6,9 +6,10 @@ import InfoCard from "../components/InfoCard";
 import info from "../utils/infoCardData";
 
 function Home() {
+
     return (
         <div>
-            <Nav currentPage={"Home"}/>
+            <Nav activeIndex={0}/>
             <div className="homeScreen">
                 <div className="info">
                     <p>

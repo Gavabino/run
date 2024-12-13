@@ -4,7 +4,7 @@ import Nav from '../components/Nav'
 function Features() {
     return (
         <div>
-            <Nav currentPage={"Features"}/>
+            <Nav activeIndex={1}/>
         </div>
     )
 }

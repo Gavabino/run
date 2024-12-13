@@ -11,24 +11,38 @@ import {addUserDoc} from "../utils/firestore";
 function Signup() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    //const [confirmPassword, setConfirmPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
     const [isRegistering, setIsRegistering] = useState(false);
-    //const [errorMessage, setErrorMessage] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
+    const [loading, setLoading] = useState(false);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        if (!isRegistering) {
-            setIsRegistering(true);
-            await doCreateUserWithEmailAndPassword(email, password);
-            await updateProfile(auth.currentUser, {displayName: `${firstName} ${lastName}`});
-            await addUserDoc()
+        if (confirmPassword === password) {
+            setErrorMessage("")
+            if (!isRegistering) {
+                setIsRegistering(true);
+                setLoading(true);
+                await doCreateUserWithEmailAndPassword(email, password).catch((error) => {
+                    setErrorMessage(error.message);
+                })
+                await updateProfile(auth.currentUser, {displayName: `${firstName} ${lastName}`}).catch((error) => {
+                    setErrorMessage(error.message);
+                });
+                await addUserDoc().catch((error) => {
+                    setErrorMessage(error.message);
+                })
+            }
+            setLoading(false)
+        } else {
+            setErrorMessage("Passwords don't match");
         }
     }
     return (
         <div className="page">
-            <Nav currentPage={"Sign Up"}/>
+            <Nav activeIndex={4}/>
             <div className="card">
                 <form onSubmit={handleSubmit} className="form">
                     <input className="input" placeholder="Enter your email" type="email"
@@ -37,9 +51,9 @@ function Signup() {
                     <input className="input" placeholder="Enter your password" type="password"
                            onChange={(e) => setPassword(e.target.value)}
                            required={true}/>
-                    {/*<input className="input" placeholder="Confirm your password" type="password"
+                    <input className="input" placeholder="Confirm your password" type="password"
                            onChange={(e) => setConfirmPassword(e.target.value)}
-                           required={true}/>*/}
+                           required={true}/>
                     <input className="input" placeholder="Enter first name" type="name"
                            onChange={(e) => setFirstName(e.target.value)}/>
                     <input className="input" placeholder="Enter last name" type="name"
@@ -48,6 +62,8 @@ function Signup() {
                 </form>
                 <p className="redirect">Already have an account? <Link to={"/signin"}>Sign In</Link></p>
             </div>
+            {loading && <p>Loading...</p>}
+            {errorMessage && <p>{errorMessage}</p>}
         </div>
     );
 }

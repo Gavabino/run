@@ -1,11 +1,14 @@
 import React from 'react'
 import Nav from '../components/Nav'
+import {CalendarProvider} from "../contexts/CalendarContext";
+import Calendar from "../components/calendar/Calendar";
 
 function App() {
     return (
-        <div>
-            <Nav currentPage={"App"}/>
-        </div>
+        <CalendarProvider>
+            <Nav activeIndex={3}/>
+            <Calendar/>
+        </CalendarProvider>
     )
 }
 
