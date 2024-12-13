@@ -1,11 +1,11 @@
 import React, {useState} from "react";
-import Nav from "../components/Nav";
+import Nav from "../../components/welcome/Nav";
 import "./Auth.css"
-import {doCreateUserWithEmailAndPassword} from "../utils/auth";
+import {doCreateUserWithEmailAndPassword} from "../../utils/auth";
 import {updateProfile} from "firebase/auth";
-import {auth} from "../utils/firebase.js";
-import {Link} from "react-router-dom";
-import {addUserDoc} from "../utils/firestore";
+import {auth} from "../../utils/firebase.js";
+import {Link, useNavigate} from "react-router-dom";
+import {addUserDoc} from "../../utils/firestore";
 
 
 function Signup() {
@@ -17,6 +17,8 @@ function Signup() {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [loading, setLoading] = useState(false);
+
+    const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -36,6 +38,7 @@ function Signup() {
                 })
             }
             setLoading(false)
+            navigate("/dashboard");
         } else {
             setErrorMessage("Passwords don't match");
         }

@@ -1,7 +1,7 @@
 import React from 'react'
-import Nav from '../components/Nav'
-import {CalendarProvider} from "../contexts/CalendarContext";
-import Calendar from "../components/calendar/Calendar";
+import Nav from '../../components/welcome/Nav'
+import {CalendarProvider} from "../../contexts/CalendarContext";
+import Calendar from "../../components/calendar/Calendar";
 
 function App() {
     return (

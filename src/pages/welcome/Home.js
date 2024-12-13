@@ -1,9 +1,9 @@
 import React from "react";
 import "./Home.css";
 
-import Nav from "../components/Nav";
-import InfoCard from "../components/InfoCard";
-import info from "../utils/infoCardData";
+import Nav from "../../components/welcome/Nav";
+import InfoCard from "../../components/welcome/InfoCard";
+import info from "../../utils/infoCardData";
 
 function Home() {
 

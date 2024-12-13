@@ -1,12 +1,11 @@
 import React, {useState} from "react";
-import Nav from "../components/Nav";
+import Nav from "../../components/welcome/Nav";
 import "./Auth.css"
-import {doSignInWithEmailAndPassword, doSignOut} from "../utils/auth";
-import {useAuth} from "../contexts/AuthContext";
-import {Link} from "react-router-dom";
+import {doSignInWithEmailAndPassword, doSignOut} from "../../utils/auth";
+import {useAuth} from "../../contexts/AuthContext";
+import {Link, useNavigate} from "react-router-dom";
 
-function Signin() {
-    //const {userLoggedIn} = useAuth();
+function Login() {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -14,6 +13,8 @@ function Signin() {
     const [errorMessage, setErrorMessage] = useState("");
     const [loading, setLoading] = useState(false);
     const {currentUser} = useAuth();
+
+    const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -35,6 +36,7 @@ function Signin() {
         }
         console.log(currentUser);
         setLoading(false);
+        navigate("/dashboard");
     }
     return (
         <div className="page">
@@ -58,4 +60,4 @@ function Signin() {
     );
 }
 
-export default Signin;
+export default Login;

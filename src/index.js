@@ -1,19 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Home from './pages/Home';
+import Home from './pages/welcome/Home';
 import reportWebVitals from './reportWebVitals';
 import {
     createBrowserRouter,
     RouterProvider,
 } from "react-router-dom";
-import Features from './pages/Features';
-import Signup from './pages/Signup';
-import Signin from './pages/Signin';
-import Usage from './pages/Usage';
-import App from './pages/App';
-import HomeScreen from './pages/HomeScreen';
-import {AuthProvider, useAuth} from "./contexts/AuthContext";
+import Features from './pages/welcome/Features';
+import Signup from './pages/welcome/Signup';
+import Login from './pages/welcome/Login';
+import Usage from './pages/welcome/Usage';
+import App from './pages/welcome/App';
+import Dashboard from './pages/dashboard/Dashboard';
+import {AuthProvider} from "./contexts/AuthContext";
+import {DevSupport} from "@react-buddy/ide-toolbox";
+import {ComponentPreviews, useInitial} from "./dev";
+import CalendarView from "./pages/dashboard/CalendarView";
+import Overview from "./pages/dashboard/Overview";
+import Analytics from "./pages/dashboard/Analytics";
 
 const router = createBrowserRouter([
     {
@@ -37,12 +42,24 @@ const router = createBrowserRouter([
         element: <Signup/>
     },
     {
-        path: "/signin",
-        element: <Signin/>
+        path: "/login",
+        element: <Login/>
     },
     {
-        path: "/homescreen",
-        element: <HomeScreen/>
+        path: "/dashboard",
+        element: <Dashboard/>
+    },
+    {
+        path: "/calendar",
+        element: <CalendarView/>
+    },
+    {
+        path: "/overview",
+        element: <Overview/>
+    },
+    {
+        path: "analytics",
+        element: <Analytics/>
     }
 ]);
 
@@ -50,7 +67,11 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
         <AuthProvider>
-            <RouterProvider router={router}/>
+            <DevSupport ComponentPreviews={ComponentPreviews}
+                        useInitialHook={useInitial}
+            >
+                <RouterProvider router={router}/>
+            </DevSupport>
         </AuthProvider>
     </React.StrictMode>
 );
