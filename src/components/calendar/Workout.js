@@ -6,7 +6,7 @@ import {faTrash} from "@fortawesome/free-solid-svg-icons";
 function Workout({workout, deleteFunction, onClick}) {
     const {display_type, distance, type} = workout
     return (
-        <div>
+        <>
             <div className={type}>
                 <div onClick={onClick} className="click">
                     <p className="distance">
@@ -23,7 +23,7 @@ function Workout({workout, deleteFunction, onClick}) {
                     onClick={deleteFunction}
                 />
             </div>
-        </div>
+        </>
     );
 }
 

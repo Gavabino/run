@@ -8,7 +8,7 @@ import info from "../../utils/infoCardData";
 function Home() {
 
     return (
-        <div>
+        <>
             <Nav activeIndex={0}/>
             <div className="homeScreen">
                 <div className="info">
@@ -30,7 +30,7 @@ function Home() {
                     />
                 ))}
             </div>
-        </div>
+        </>
     );
 }
 
