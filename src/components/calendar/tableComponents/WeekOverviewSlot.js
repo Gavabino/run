@@ -6,7 +6,7 @@ const WeekOverviewSlot = ({week}) => {
     return (
         <td className="weekOverview">
             <div className="weekOverviewContainer">
-                <p>Total Mileage: {totalMileage(week)}</p>
+                <p>Total Mileage: {totalMileage(week)} Miles</p>
                 <p>Total Runs: {totalRuns(week)}</p>
                 <p>Estimated Time: {estimateTotalTime(totalMileage(week), 8.5)} Min</p>
             </div>

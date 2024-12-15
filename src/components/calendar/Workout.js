@@ -3,7 +3,7 @@ import "./Workout.css"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faTrash} from "@fortawesome/free-solid-svg-icons";
 
-function Workout({workout, deleteFunction, onClick}) {
+function Workout({workout, deleteFunction, onClick, disableDelete}) {
     const {display_type, distance, type} = workout
     return (
         <>
@@ -17,11 +17,11 @@ function Workout({workout, deleteFunction, onClick}) {
                         {workout.time} Minutes
                     </p>
                 </div>
-                <FontAwesomeIcon
+                {!disableDelete && <FontAwesomeIcon
                     icon={faTrash}
                     className="delete"
                     onClick={deleteFunction}
-                />
+                />}
             </div>
         </>
     );

@@ -354,9 +354,8 @@ td {
 
 .weekOverviewContainer {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
+    flex-direction: column;
     text-align: left;
-    overflow-y: scroll;
+    overflow-y: hidden;
     max-height: 150px;
 }

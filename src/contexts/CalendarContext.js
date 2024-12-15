@@ -159,7 +159,7 @@ export const CalendarProvider = ({children}) => {
         removeItem,
         addWorkout,
         findWeekInCalendar,
-    }), [month, year, calendarData, day, week, isShowing, currentWorkout, isCurrentWorkout])
+    }), [month, year, calendarData, day, week, isShowing, currentWorkout, isCurrentWorkout, increaseMonthDate, decreaseMonthDate])
     return (
         <CalendarContext.Provider value={value}>
             {children}

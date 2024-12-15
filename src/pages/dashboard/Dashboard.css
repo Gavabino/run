@@ -3,3 +3,18 @@
     align-items: center;
     flex-direction: column;
 }
+
+.currentDayContainer {
+    border: 2px solid black;
+    height: 100%;
+    width: 25vw;
+    margin-top: 100px;
+}
+
+.currentDayWorkouts {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+}
