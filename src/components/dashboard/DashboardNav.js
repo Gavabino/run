@@ -1,6 +1,7 @@
 import {Link} from "react-router-dom";
 import "../welcome/Nav.css"
 import WelcomeTitle from "./WelcomeTitle";
+import SettingsGear from "./SettingsGear";
 
 const DashboardNav = ({activeIndex}) => {
     return (
@@ -10,6 +11,7 @@ const DashboardNav = ({activeIndex}) => {
                 <Link className={activeIndex === 0 ? "activeLink" : "link"} to="/dashboard">Dashboard</Link>
                 <Link className={activeIndex === 1 ? "activeLink" : "link"} to="/calendar">Calendar</Link>
                 <Link className={activeIndex === 2 ? "activeLink" : "link"} to="/analytics">Analytics</Link>
+                <SettingsGear/>
             </div>
         </div>
     )

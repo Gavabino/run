@@ -19,6 +19,8 @@ import {ComponentPreviews, useInitial} from "./dev";
 import CalendarView from "./pages/dashboard/CalendarView";
 import Overview from "./pages/dashboard/Overview";
 import Analytics from "./pages/dashboard/Analytics";
+import Profile from "./pages/dashboard/Profile";
+import Settings from "./pages/dashboard/Settings";
 
 const router = createBrowserRouter([
     {
@@ -58,8 +60,16 @@ const router = createBrowserRouter([
         element: <Overview/>
     },
     {
-        path: "analytics",
+        path: "/analytics",
         element: <Analytics/>
+    },
+    {
+        path: "/profile",
+        element: <Profile/>
+    },
+    {
+        path: "/settings",
+        element: <Settings/>
     }
 ]);
 
