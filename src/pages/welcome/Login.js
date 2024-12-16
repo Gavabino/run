@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import Nav from "../../components/welcome/Nav";
 import "./Auth.css"
-import {doSignInWithEmailAndPassword, doSignOut} from "../../utils/auth";
+import {doSignInWithEmailAndPassword} from "../../utils/auth";
 import {useAuth} from "../../contexts/AuthContext";
 import {Link, useNavigate} from "react-router-dom";
 
@@ -23,7 +23,11 @@ function Login() {
             setIsSigningIn(true);
             setLoading(true);
             try {
-                await doSignInWithEmailAndPassword(email, password)
+                await doSignInWithEmailAndPassword(email, password).then(() => {
+                    console.log(currentUser);
+                    setLoading(false);
+                    navigate("/dashboard");
+                })
             } catch (error) {
                 setIsSigningIn(false);
                 setLoading(false);
@@ -34,9 +38,6 @@ function Login() {
                 }
             }
         }
-        console.log(currentUser);
-        setLoading(false);
-        navigate("/dashboard");
     }
     return (
         <div className="page">
@@ -51,7 +52,6 @@ function Login() {
                            required={true}/>
                     <button className="sign" type="submit">Sign In</button>
                 </form>
-                <button className="sign" onClick={() => doSignOut()}>Sign Out</button>
                 <p className="redirect">Don't have an account? <Link to={"/signup"}>Sign Up</Link></p>
             </div>
             {loading && <p>Loading...</p>}

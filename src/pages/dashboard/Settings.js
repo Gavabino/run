@@ -1,4 +1,4 @@
-import DashboardNav from "../../components/dashboard/DashboardNav";
+import DashboardNav from "../../components/dashboard/Navbar/DashboardNav";
 
 const Settings = () => {
     return (

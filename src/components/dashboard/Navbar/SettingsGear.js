@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faGear} from "@fortawesome/free-solid-svg-icons";
 import "./DashboardNav.css"
-import {doSignOut} from "../../utils/auth";
+import {doSignOut} from "../../../utils/auth";
 import {useNavigate} from "react-router-dom";
 
 const SettingsGear = () => {

@@ -1,5 +1,5 @@
 import {Link} from "react-router-dom";
-import "../welcome/Nav.css"
+import "../../welcome/Nav.css"
 import WelcomeTitle from "./WelcomeTitle";
 import SettingsGear from "./SettingsGear";
 

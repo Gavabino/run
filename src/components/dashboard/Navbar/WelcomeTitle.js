@@ -1,4 +1,4 @@
-import {useAuth} from "../../contexts/AuthContext";
+import {useAuth} from "../../../contexts/AuthContext";
 import moment from "moment";
 
 const WelcomeTitle = () => {
@@ -19,7 +19,10 @@ const WelcomeTitle = () => {
     }
     return (
         <div style={style}>{welcomeText} <span
-            style={{color: "var(--light-accent)", fontWeight: "bold"}}>{currentUser.displayName}</span>
+            style={{
+                color: "var(--light-accent)",
+                fontWeight: "bold"
+            }}>{currentUser.displayName}</span>
         </div>
     )
 }

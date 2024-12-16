@@ -1,6 +1,6 @@
 import React from "react";
 import "./Dashboard.css"
-import DashboardNav from "../../components/dashboard/DashboardNav";
+import DashboardNav from "../../components/dashboard/Navbar/DashboardNav";
 import CurrentDayView from "../../components/dashboard/CurrentDayView";
 import {DashboardProvider} from "../../contexts/DashboardContext";
 import {CalendarProvider} from "../../contexts/CalendarContext";

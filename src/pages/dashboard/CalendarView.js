@@ -1,4 +1,4 @@
-import DashboardNav from "../../components/dashboard/DashboardNav";
+import DashboardNav from "../../components/dashboard/Navbar/DashboardNav";
 import {CalendarProvider} from "../../contexts/CalendarContext";
 import Calendar from "../../components/calendar/Calendar";
 import React from "react";

@@ -63,7 +63,7 @@ function Signup() {
                            onChange={(e) => setLastName(e.target.value)}/>
                     <button type="submit" className="sign">Sign up</button>
                 </form>
-                <p className="redirect">Already have an account? <Link to={"/signin"}>Sign In</Link></p>
+                <p className="redirect">Already have an account? <Link to={"/login"}>Sign In</Link></p>
             </div>
             {loading && <p>Loading...</p>}
             {errorMessage && <p>{errorMessage}</p>}
