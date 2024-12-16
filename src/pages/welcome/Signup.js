@@ -12,7 +12,6 @@ function Signup() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
-    const [isRegistering, setIsRegistering] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -24,8 +23,7 @@ function Signup() {
         event.preventDefault();
         if (confirmPassword === password) {
             setErrorMessage("")
-            if (!isRegistering) {
-                setIsRegistering(true);
+            if (!loading) {
                 setLoading(true);
                 await doCreateUserWithEmailAndPassword(email, password).catch((error) => {
                     setErrorMessage(error.message);

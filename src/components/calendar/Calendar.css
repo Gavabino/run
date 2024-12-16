@@ -234,27 +234,7 @@ td {
     width: 90%;
 }
 
-.selectType {
-    margin-top: 5px;
-    border-radius: 15px;
-    height: 30px;
-    border-top: 2px solid var(--light-accent);
-    border-left: 2px solid var(--light-accent);
-    border-bottom: 2px solid var(--dark-accent);
-    border-right: 2px solid var(--dark-accent);
-}
-
-.timeSelect {
-    margin-top: 5px;
-    border-radius: 15px;
-    height: 30px;
-    border-top: 2px solid var(--light-accent);
-    border-left: 2px solid var(--light-accent);
-    border-bottom: 2px solid var(--dark-accent);
-    border-right: 2px solid var(--dark-accent);
-}
-
-.distanceSelect {
+.distanceSelect, .selectType {
     margin-top: 5px;
     border-radius: 15px;
     height: 30px;
