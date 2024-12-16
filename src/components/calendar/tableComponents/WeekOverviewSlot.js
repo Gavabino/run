@@ -5,11 +5,11 @@ import React from "react";
 const WeekOverviewSlot = ({week}) => {
     return (
         <td className="weekOverview">
-            <div className="weekOverviewContainer">
-                <p>Total Mileage: {totalMileage(week)} Miles</p>
-                <p>Total Runs: {totalRuns(week)}</p>
-                <p>Estimated Time: {estimateTotalTime(totalMileage(week), 8.5)} Min</p>
-            </div>
+            <p>Total Mileage: {totalMileage(week)} Miles
+                <br></br>
+                Total Runs: {totalRuns(week)}
+                <br></br>
+                Estimated Time: {estimateTotalTime(totalMileage(week), 8.5)} Min</p>
         </td>
     )
 }

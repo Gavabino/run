@@ -4,7 +4,7 @@ import WelcomeTitle from "./WelcomeTitle";
 
 const DashboardNav = ({activeIndex}) => {
     return (
-        <div className="navbar" style={{display: "flex", justifyContent: "flex-end"}}>
+        <div className="navbar" style={{display: "flex", justifyContent: "space-between"}}>
             <WelcomeTitle/>
             <div className="buttons">
                 <Link className={activeIndex === 0 ? "activeLink" : "link"} to="/dashboard">Dashboard</Link>

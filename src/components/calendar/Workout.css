@@ -102,3 +102,81 @@
     width: 90%;
     height: 100%;
 }
+
+.easyPreview {
+    width: 80%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    border-radius: 15px;
+    margin: 5px;
+    justify-content: center;
+    font-size: 1.1rem;
+    background-color: #8FFF8D;
+    border: 3px solid #00FF09;
+}
+
+.walkPreview {
+    width: 80%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    border-radius: 15px;
+    margin: 5px;
+    justify-content: center;
+    font-size: 1.1rem;
+    background-color: #BFBFBF;
+    border: 3px solid #666666;
+}
+
+.recoveryPreview {
+    width: 80%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    border-radius: 15px;
+    margin: 5px;
+    justify-content: center;
+    font-size: 1.1rem;
+    background-color: #8DE2FF;
+    border: 3px solid #00D9FF;
+}
+
+.longPreview {
+    width: 80%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    border-radius: 15px;
+    margin: 5px;
+    justify-content: center;
+    font-size: 1.1rem;
+    background-color: #FDFF6C;
+    border: 3px solid #FFFF00;
+}
+
+.workoutPreview {
+    width: 80%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    border-radius: 15px;
+    margin: 5px;
+    justify-content: center;
+    font-size: 1.1rem;
+    background-color: #FFC155;
+    border: 3px solid #FFAA00;
+}
+
+.racePreview {
+    width: 80%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    border-radius: 15px;
+    margin: 5px;
+    justify-content: center;
+    font-size: 1.1rem;
+    background-color: #FF5555;
+    border: 3px solid #FF0000;
+}

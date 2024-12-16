@@ -53,9 +53,6 @@ export const DashboardProvider = ({children}) => {
             week.forEach(day => {
                 if (day.date === date) {
                     currentDay = day;
-                    console.log("day found")
-                } else {
-                    console.log("day not found");
                 }
             })
         })
