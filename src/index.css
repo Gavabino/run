@@ -3,7 +3,7 @@
     --light-accent: #924DBF;
     --dark-main: #494848;
     --medium-main: #909090;
-    --light-main: #d4d4d4;
+    --light-main: rgba(212, 212, 212, 0.75);
 }
 
 body {

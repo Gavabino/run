@@ -13,6 +13,7 @@ const FilledCalendarSlot = ({day, week}) => {
                     return (
                         <WorkoutPreview
                             workout={workout}
+                            key={day.workouts.indexOf(workout)}
                         />
                     );
                 })}

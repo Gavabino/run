@@ -10,6 +10,7 @@ const CurrentDayView = () => {
 
     return (
         <div className="currentDayContainer">
+            <p className="currentDayViewHeader">Today's Workouts:</p>
             <div className="currentDayWorkouts">
                 {currentDay?.workouts.map((workout) => {
                     return (

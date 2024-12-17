@@ -51,7 +51,7 @@
     margin-right: 5px;
 }
 
-.recovery:hover, .easy:hover {
+.recovery:hover, .easy:hover, .walk:hover, .recovery:hover, .long:hover, .workout:hover, .race:hover {
     transform: scale(1.01);
 }
 
@@ -61,6 +61,26 @@
 
 .recovery:active {
     background-color: #00D9FF;
+}
+
+.long:active {
+    background-color: #FFFF00;
+}
+
+.walk:active {
+    background-color: #666666;
+}
+
+.recovery:active {
+    background-color: #00D9FF;
+}
+
+.workout:active {
+    background-color: #FFAA00;
+}
+
+.race:active {
+    background-color: #FF0000;
 }
 
 .click {

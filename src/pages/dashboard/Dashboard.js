@@ -10,7 +10,9 @@ function Dashboard() {
         <DashboardProvider>
             <CalendarProvider>
                 <DashboardNav activeIndex={0}/>
-                <CurrentDayView/>
+                <div className="dashboardContainer">
+                    <CurrentDayView/>
+                </div>
             </CalendarProvider>
         </DashboardProvider>
     );

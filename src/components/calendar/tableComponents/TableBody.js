@@ -14,8 +14,8 @@ const TableBody = () => {
             <tr key={calendarData.indexOf(week)}>
                 {week.map((day) =>
                     day.workouts.length === 0 ?
-                        <EmptyCalendarSlot day={day} week={week}/> :
-                        <FilledCalendarSlot day={day} week={week}/>
+                        <EmptyCalendarSlot day={day} week={week} key={week.indexOf(day)}/> :
+                        <FilledCalendarSlot day={day} week={week} key={week.indexOf(day)}/>
                 )}
                 <WeekOverviewSlot week={week}/>
             </tr>
