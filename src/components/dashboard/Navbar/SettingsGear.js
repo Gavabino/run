@@ -7,6 +7,7 @@ import {useNavigate} from "react-router-dom";
 
 const SettingsGear = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [clicked, setClicked] = useState(false);
 
     const navigate = useNavigate();
 
@@ -32,8 +33,11 @@ const SettingsGear = () => {
     return (
         <div className="settings-container">
             {/* Gear Icon */}
-            <button onClick={() => setIsOpen(!isOpen)} className="gear-button">
-                <FontAwesomeIcon icon={faGear}/>
+            <button onClick={() => {
+                setIsOpen(!isOpen)
+                setClicked(true);
+            }} className={"gear-button"} onAnimationEnd={() => setClicked(false)}>
+                <FontAwesomeIcon icon={faGear} className={clicked ? "clicked" : ""}/>
             </button>
 
             {/* Dropdown Menu */}

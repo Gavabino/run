@@ -36,6 +36,30 @@ export const totalMileagePerDay = (week) => {
     return mileageArray;
 }
 
-export const estimateTotalTime = (distance, pace) => {
+export const estimateTotalTime = (distance, type) => {
+    let pace;
+    switch (type) {
+        case "walk":
+            pace = 17.5;
+            break
+        case "easy":
+            pace = 8.5;
+            break;
+        case "recovery":
+            pace = 9;
+            break;
+        case "long":
+            pace = 8.5;
+            break;
+        case "workout":
+            pace = 7;
+            break;
+        case "race":
+            pace = 6;
+            break;
+        default:
+            break;
+    }
+
     return distance * pace;
 }

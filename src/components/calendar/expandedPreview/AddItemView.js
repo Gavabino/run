@@ -37,7 +37,7 @@ function AddItemView() {
             default:
                 break;
         }
-        newWorkout = {...newWorkout, time: estimateTotalTime(newWorkout.distance, 8.5)};
+        newWorkout = {...newWorkout, time: estimateTotalTime(newWorkout.distance, newWorkout.type)};
         await addWorkout(newWorkout);
         reset();
     };

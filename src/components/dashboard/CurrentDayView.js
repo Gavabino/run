@@ -6,6 +6,7 @@ import {useCalendar} from "../../contexts/CalendarContext";
 const CurrentDayView = () => {
     const {findDayInCalendar} = useDashboard();
     const {removeItem} = useCalendar();
+
     const currentDay = findDayInCalendar();
 
     return (

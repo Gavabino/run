@@ -12,6 +12,8 @@ function Dashboard() {
                 <DashboardNav activeIndex={0}/>
                 <div className="dashboardContainer">
                     <CurrentDayView/>
+                    <CurrentDayView/>
+                    <CurrentDayView/>
                 </div>
             </CalendarProvider>
         </DashboardProvider>
