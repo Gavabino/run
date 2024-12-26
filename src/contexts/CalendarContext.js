@@ -29,7 +29,6 @@ export const CalendarProvider = ({children}) => {
             // Increment the month
             return {...prevDate, month: prevDate.month + 1};
         });
-        console.log("Date increased")
     }, []);
 
     const decreaseMonthDate = useCallback(() => {
@@ -41,7 +40,6 @@ export const CalendarProvider = ({children}) => {
             // Decrement the month
             return {...prevDate, month: prevDate.month - 1};
         });
-        console.log("Date decreased")
     }, []);
 
     const month = date.month;
@@ -94,7 +92,6 @@ export const CalendarProvider = ({children}) => {
     };
 
     const removeWorkoutFromDay = (workout, date, currentDay) => {
-        console.log("Remove workout", workout);
         return calendarData.map((week) =>
             week.map((day) =>
                 currentDay.date === date
@@ -113,7 +110,6 @@ export const CalendarProvider = ({children}) => {
             setCurrentWorkout({});
             setIsCurrentWorkout(false);
         }
-        console.log("Deleted workout:", workout);
     };
 
     const addWorkout = async (newWorkout) => {
@@ -138,6 +134,16 @@ export const CalendarProvider = ({children}) => {
         );
     };
 
+    const checkCurrentDay = (day) => {
+        const date = `${moment().year()}-${moment().month() + 1}-${moment().date()}`;
+
+        if (day.date) {
+            return day.date === date;
+        } else {
+            return false;
+        }
+    }
+
     const value = useMemo(() => ({
         month,
         year,
@@ -159,6 +165,7 @@ export const CalendarProvider = ({children}) => {
         removeItem,
         addWorkout,
         findWeekInCalendar,
+        checkCurrentDay
     }), [month, year, calendarData, day, week, isShowing, currentWorkout, isCurrentWorkout, increaseMonthDate, decreaseMonthDate])
     return (
         <CalendarContext.Provider value={value}>

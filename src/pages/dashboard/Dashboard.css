@@ -4,6 +4,10 @@
     margin-top: 100px;
 }
 
+.currentDayContainer::-webkit-scrollbar {
+    display: none;
+}
+
 .currentDayViewHeader {
     margin: 0;
     font-size: 1.10rem;

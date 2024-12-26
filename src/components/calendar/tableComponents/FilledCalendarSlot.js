@@ -3,17 +3,22 @@ import WorkoutPreview from "../WorkoutPreview";
 import React from "react";
 import {useCalendar} from "../../../contexts/CalendarContext";
 
-const FilledCalendarSlot = ({day, week}) => {
-    const {toggleShowing} = useCalendar()
+const FilledCalendarSlot = ({day, week, currentDay}) => {
+    const {toggleShowing, setActiveWorkout} = useCalendar()
+
     return (
         <td key={day.date} className={day.disabled}>
-            {"dayNum" in day && <p className="date">{day.dayNum}</p>}
+            {"dayNum" in day && <p className={currentDay ? "currentDay" : "date"}>{day.dayNum}</p>}
             <div className="entryContainer">
                 {day.workouts.map((workout) => {
                     return (
                         <WorkoutPreview
                             workout={workout}
                             key={day.workouts.indexOf(workout)}
+                            clickFunction={() => {
+                                toggleShowing(day, week)
+                                setActiveWorkout(workout)
+                            }}
                         />
                     );
                 })}

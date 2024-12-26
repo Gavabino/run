@@ -131,3 +131,35 @@
     background-color: #FF5555;
     border: 3px solid #FF0000;
 }
+
+.recoveryPreview:hover, .easyPreview:hover, .walkPreview:hover, .recoveryPreview:hover, .longPreview:hover, .workoutPreview:hover, .racePreview:hover {
+    transform: scale(1.01);
+}
+
+.easyPreview:active {
+    background-color: #00FF09;
+}
+
+.recoveryPreview:active {
+    background-color: #00D9FF;
+}
+
+.longPreview:active {
+    background-color: #FFFF00;
+}
+
+.walkPreview:active {
+    background-color: #666666;
+}
+
+.recoveryPreview:active {
+    background-color: #00D9FF;
+}
+
+.workoutPreview:active {
+    background-color: #FFAA00;
+}
+
+.racePreview:active {
+    background-color: #FF0000;
+}

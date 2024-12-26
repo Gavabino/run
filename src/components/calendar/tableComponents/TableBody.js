@@ -6,7 +6,7 @@ import React from "react";
 import {useCalendar} from "../../../contexts/CalendarContext";
 
 const TableBody = () => {
-    const {calendarData} = useCalendar();
+    const {calendarData, checkCurrentDay} = useCalendar();
 
     return (
         <tbody>
@@ -14,8 +14,10 @@ const TableBody = () => {
             <tr key={calendarData.indexOf(week)}>
                 {week.map((day) =>
                     day.workouts.length === 0 ?
-                        <EmptyCalendarSlot day={day} week={week} key={week.indexOf(day)}/> :
-                        <FilledCalendarSlot day={day} week={week} key={week.indexOf(day)}/>
+                        <EmptyCalendarSlot day={day} week={week} key={week.indexOf(day)}
+                                           currentDay={checkCurrentDay(day)}/> :
+                        <FilledCalendarSlot day={day} week={week} key={week.indexOf(day)}
+                                            currentDay={checkCurrentDay(day)}/>
                 )}
                 <WeekOverviewSlot week={week}/>
             </tr>

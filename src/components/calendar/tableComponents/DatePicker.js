@@ -1,7 +1,7 @@
-import "./Calendar.css"
+import "../Calendar.css"
 import moment from "moment/moment";
 import React from "react";
-import {useCalendar} from "../../contexts/CalendarContext";
+import {useCalendar} from "../../../contexts/CalendarContext";
 
 const DatePicker = () => {
     let {month, year, increaseMonthDate, decreaseMonthDate} = useCalendar()

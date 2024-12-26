@@ -9,7 +9,6 @@ function WeekView() {
 
     useEffect(() => {
         findWeekInCalendar(week);
-        console.log("Week updated")
     }, [calendarData]);
 
     return (

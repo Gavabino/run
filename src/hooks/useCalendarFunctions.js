@@ -42,7 +42,6 @@ const useCalendarFunctions = () => {
                 }
             })
             if (disabledCount === 7) {
-                console.log("delete week")
                 calendarData = calendarData.filter((w) => w !== week)
             }
         })
