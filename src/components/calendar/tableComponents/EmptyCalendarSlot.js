@@ -2,12 +2,12 @@ import "../Calendar.css"
 import React from "react";
 import {useCalendar} from "../../../contexts/CalendarContext";
 
-const EmptyCalendarSlot = ({day, week}) => {
+const EmptyCalendarSlot = ({day, week, currentDay}) => {
     const {toggleShowing} = useCalendar();
     return (
         <td key={day.date} className={"" + day.disabled}>
             <div className="entryContainer">
-                {"dayNum" in day && <p className="date">{day.dayNum}</p>}
+                {"dayNum" in day && <p className={currentDay ? "currentDay" : "date"}>{day.dayNum}</p>}
                 <button onClick={() => toggleShowing(day, week)} className="add">
                     Add Workout
                 </button>

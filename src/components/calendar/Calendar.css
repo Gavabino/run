@@ -112,16 +112,26 @@ td {
     font-weight: bolder;
 }
 
-.date {
+.date, .currentDay {
     position: absolute;
     top: 0;
     left: 0;
-    border: none;
-    background-color: transparent;
     font-size: 1rem;
     font-weight: bolder;
     margin: 0;
+}
+
+.date {
+    border: none;
+    background-color: transparent;
     color: var(--light-accent);
+}
+
+.currentDay {
+    border: 2px solid var(--light-accent);
+    border-radius: 15px;
+    background-color: var(--light-accent);
+    color: white;
 }
 
 .expand:hover {
