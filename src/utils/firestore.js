@@ -40,7 +40,27 @@ export const getWorkoutDoc = async (date) => {
     return (await getDoc(doc(db, `${auth.currentUser.uid}`, date))).data();
 }
 
-export const unflatten = (array) => {
+export const addPresetDoc = async (data) => {
+    try {
+        if (!auth.currentUser) {
+            console.error("No user is signed in.");
+            return;
+        }
+        await setDoc(doc(db, `${auth.currentUser.uid}`, "presets"), {
+            data: data.flat()
+        })
+
+        console.log("Document written with ID: ", auth.currentUser.uid);
+    } catch (error) {
+        console.error("Error adding document: ", error);
+    }
+}
+
+export const getPresets = async () => {
+    return (await getDoc(doc(db, `${auth.currentUser.uid}`, `presets`)))
+}
+
+export const expand = (array) => {
     const result = [];
     for (let i = 0; i < array.length; i += 7) {
         result.push(array.slice(i, i + 7));

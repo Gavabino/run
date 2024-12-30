@@ -1,5 +1,5 @@
 .easy, .walk, .recovery, .long, .workout, .race {
-    width: 300px;
+    width: 90%;
     height: 50px;
     display: flex;
     justify-content: space-between;

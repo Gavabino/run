@@ -1,5 +1,5 @@
 import {createContext, useContext, useEffect, useState} from "react";
-import {addWorkoutDoc, doesDocumentExist, getWorkoutDoc, unflatten} from "../utils/firestore";
+import {addWorkoutDoc, doesDocumentExist, getWorkoutDoc, expand} from "../utils/firestore";
 import useCalendarFunctions from "../hooks/useCalendarFunctions";
 import moment from "moment";
 
@@ -21,12 +21,12 @@ export const DashboardProvider = ({children}) => {
                 let data;
 
                 if (await doesDocumentExist(key)) {
-                    data = unflatten(doc.data);
+                    data = expand(doc.data);
                 } else {
                     const newCalendar = setCalendarDates(EmptyCalendar, (moment().month() + 1), moment().year());
                     await addWorkoutDoc(key, newCalendar);
                     doc = await getWorkoutDoc(key);
-                    data = unflatten(doc.data);
+                    data = expand(doc.data);
                 }
 
                 if (isMounted) {

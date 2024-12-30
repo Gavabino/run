@@ -12,7 +12,7 @@ function Nav({activeIndex}) {
             <img alt="logo" className="logo" src={logo}/>
             <div className="buttons">
                 {/* Home */}
-                <Link className={activeIndex === 0 ? "activeLink" : "link"} to={currentUser ? "/dashboard" : "/"}>
+                <Link className={activeIndex === 0 ? "activeLink" : "link"} to={"/"}>
                     Home
                 </Link>
                 {/* Features */}
@@ -26,9 +26,11 @@ function Nav({activeIndex}) {
                 {/* App */}
                 <Link className={activeIndex === 3 ? "activeLink" : "link"} to={"/app"}>App</Link>
                 {/* Sign in */}
-                <Link className={activeIndex === 5 ? "activeLogin" : "login"} to={"/login"}>Sign In</Link>
+                <Link className={activeIndex === 5 ? "activeLogin" : "login"}
+                      to={currentUser ? "/dashboard" : "/login"}>Sign In</Link>
                 {/* Sign up */}
-                <Link className={activeIndex === 4 ? "activeLogin" : "login"} to={"/signup"}>Sign Up</Link>
+                <Link className={activeIndex === 4 ? "activeLogin" : "login"}
+                      to={currentUser ? "/dashboard" : "/signup"}>Sign Up</Link>
             </div>
         </div>
     );
