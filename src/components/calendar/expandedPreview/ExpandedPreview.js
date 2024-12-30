@@ -1,10 +1,12 @@
 import "../Calendar.css";
 import React from "react";
-import AddItemView from "./AddItemView";
+import AddItemView from "./addItemView/AddItemView";
 import DetailedView from "./DetailedView";
 import WeekView from "./WeekView";
 import {useCalendar} from "../../../contexts/CalendarContext";
 import WorkoutContainer from "./WorkoutContainer";
+import PresetView from "./PresetView";
+import {PresetProvider} from "../../../contexts/PresetContext";
 
 function ExpandedPreview() {
     const {
@@ -21,7 +23,10 @@ function ExpandedPreview() {
                 {isCurrentWorkout ?
                     <DetailedView currentWorkout={currentWorkout}/>
                     :
-                    <AddItemView/>
+                    <PresetProvider>
+                        <AddItemView/>
+                        <PresetView/>
+                    </PresetProvider>
                 }
             </div>
             <WeekView/>

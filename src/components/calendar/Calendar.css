@@ -197,6 +197,10 @@ td {
     min-width: 320px;
     height: 90%;
     border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .detailsContainer {
@@ -213,7 +217,7 @@ td {
 
 .largeAdd {
     border: 3px solid;
-    width: 300px;
+    width: 90%;
     height: 50px;
     display: flex;
     align-items: center;
@@ -231,10 +235,6 @@ td {
 
 .largeAdd:active {
     background-color: var(--medium-main);
-}
-
-.instructions {
-    margin: 5px;
 }
 
 .addRunForm {
@@ -270,4 +270,19 @@ td {
     overflow-y: hidden;
     max-height: 150px;
     line-height: 2rem;
+}
+
+.selectorContainer {
+    width: 100%;
+    height: 5%;
+}
+
+.selectedButton {
+    width: 50%;
+    height: 100%;
+}
+
+.selectorButton {
+    width: 50%;
+    height: 100%;
 }
