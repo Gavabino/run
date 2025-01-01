@@ -48,7 +48,21 @@
 }
 
 .delete {
-    margin-right: 5px;
+    padding: 5px;
+}
+
+.delete:hover {
+    background-color: #BFBFBF;
+    border-radius: 50%;
+}
+
+.edit {
+    padding: 5px;
+}
+
+.edit:hover {
+    background-color: #BFBFBF;
+    border-radius: 50%;
 }
 
 .recovery:hover, .easy:hover, .walk:hover, .recovery:hover, .long:hover, .workout:hover, .race:hover {

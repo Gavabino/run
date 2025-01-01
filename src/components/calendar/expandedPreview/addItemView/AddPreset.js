@@ -24,7 +24,7 @@ const AddPreset = () => {
             <form className="addRunForm" onSubmit={handleSubmit(onSubmit)}>
                 <AddWorkoutForm register={register}/>
                 <button type="submit" className="submit">
-                    Add to presets
+                    Add Preset
                 </button>
             </form>
         </>

@@ -1,17 +1,29 @@
 import "../../Calendar.css";
-import {useState} from "react";
 import AddWorkout from "./AddWorkout";
 import AddPreset from "./AddPreset";
+import EditForm from "./EditForm";
+import {usePreset} from "../../../../contexts/PresetContext";
 
 function AddItemView() {
-    const [selector, setSelector] = useState(true);
+    const {selector, setSelector, editWorkout} = usePreset()
 
     const handleClick = (e) => {
         const buttonId = e.target.id;
         if (buttonId === "workout") {
-            setSelector(true);
+            setSelector("workout");
         } else if (buttonId === "preset") {
-            setSelector(false);
+            setSelector("preset");
+        }
+    }
+
+    const renderSwitch = () => {
+        switch (selector) {
+            case "workout":
+                return <AddWorkout/>
+            case "preset":
+                return <AddPreset/>
+            case "edit":
+                return <EditForm workout={editWorkout}/>
         }
     }
 
@@ -29,7 +41,7 @@ function AddItemView() {
                     Add Preset
                 </button>
             </div>
-            {selector ? <AddWorkout/> : <AddPreset/>}
+            {renderSwitch()}
         </>
     )
 }

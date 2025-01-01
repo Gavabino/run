@@ -18,17 +18,19 @@ function ExpandedPreview() {
 
     return (
         <div className="excontainer">
-            <WorkoutContainer/>
-            <div className="detailsContainer">
-                {isCurrentWorkout ?
-                    <DetailedView currentWorkout={currentWorkout}/>
-                    :
-                    <PresetProvider>
-                        <AddItemView/>
-                        <PresetView/>
-                    </PresetProvider>
-                }
-            </div>
+            <PresetProvider>
+                <WorkoutContainer/>
+                <div className="detailsContainer">
+                    {isCurrentWorkout ?
+                        <DetailedView currentWorkout={currentWorkout}/>
+                        :
+                        <>
+                            <AddItemView/>
+                            <PresetView/>
+                        </>
+                    }
+                </div>
+            </PresetProvider>
             <WeekView/>
             <button className="collapse" onClick={() => setShowing(!isShowing)}>
                 X

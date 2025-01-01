@@ -118,6 +118,28 @@ export const CalendarProvider = ({children}) => {
         await addWorkoutDoc(`${year}-${month}`, updatedCalendarData.flat());
     };
 
+    const editWorkout = async (workout, newWorkout) => {
+        const updatedCalendarData = calendarData.map((week) =>
+            week.map((day) =>
+                day.workouts.some((w) => w === workout)
+                    ? {
+                        ...day,
+                        workouts: day.workouts.map((w) =>
+                            w === workout ? newWorkout : w
+                        ),
+                    }
+                    : day
+            )
+        );
+
+        setCalendarData(updatedCalendarData);
+        await addWorkoutDoc(`${year}-${month}`, updatedCalendarData.flat());
+
+        if (currentWorkout === workout) {
+            setCurrentWorkout(newWorkout);
+        }
+    };
+
     const updateWorkoutsInDay = (calendarData, date, newWorkout) => {
         return calendarData.map((week) =>
             week.map((day) =>
@@ -165,7 +187,8 @@ export const CalendarProvider = ({children}) => {
         removeItem,
         addWorkout,
         findWeekInCalendar,
-        checkCurrentDay
+        checkCurrentDay,
+        editWorkout,
     }), [month, year, calendarData, day, week, isShowing, currentWorkout, isCurrentWorkout, increaseMonthDate, decreaseMonthDate])
     return (
         <CalendarContext.Provider value={value}>

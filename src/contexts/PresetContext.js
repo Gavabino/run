@@ -6,6 +6,8 @@ export const usePreset = () => useContext(PresetContext);
 export const PresetProvider = ({children}) => {
 
     const [presets, setPresets] = useState([]);
+    const [selector, setSelector] = useState("workout");
+    const [editWorkout, setEditWorkout] = useState();
 
     useEffect(() => {
         let isMounted = true;
@@ -77,6 +79,10 @@ export const PresetProvider = ({children}) => {
         setPresets,
         addPreset,
         deletePreset,
+        selector,
+        setSelector,
+        editWorkout,
+        setEditWorkout,
     }
 
     return (

@@ -1,10 +1,11 @@
 import React from "react";
 import "./Workout.css"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faTrash} from "@fortawesome/free-solid-svg-icons";
+import {faTrash, faPencil} from "@fortawesome/free-solid-svg-icons";
 
-function Workout({workout, deleteFunction, onClick, disableDelete}) {
+function Workout({workout, deleteFunction, onClick, disableDelete, editable, editFunction}) {
     const {display_type, distance, type} = workout
+
     return (
         <>
             <div className={type}>
@@ -22,6 +23,7 @@ function Workout({workout, deleteFunction, onClick, disableDelete}) {
                     className="delete"
                     onClick={deleteFunction}
                 />}
+                {editable && <FontAwesomeIcon icon={faPencil} className="edit" onClick={editFunction}/>}
             </div>
         </>
     );
