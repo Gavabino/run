@@ -21,6 +21,7 @@ const WorkoutContainer = () => {
     const handleClick = (workout) => {
         setSelector("edit")
         setEditWorkout(workout)
+        setIsCurrentWorkout(false)
     }
 
     return (

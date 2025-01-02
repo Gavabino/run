@@ -1,8 +1,10 @@
 function DetailedView({currentWorkout}) {
+    const {display_type, distance} = currentWorkout;
+
     return (
         <>
-            <p className="displaytype">{currentWorkout.display_type}</p>
-            <p className="distanceinfo">{currentWorkout.distance} Miles</p>
+            <p className="displaytype">{display_type}</p>
+            <p className="distanceinfo">{distance} Miles</p>
         </>
     );
 }
