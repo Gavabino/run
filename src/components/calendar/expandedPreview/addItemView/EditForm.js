@@ -33,15 +33,10 @@ function EditForm({workout}) {
     };
 
     useEffect(() => {
-        if (workout && workout.distance !== undefined) {
+        if (workout) {
             reset({
                 display_type: workout.display_type || "default",
                 distance: workout.distance || 0,
-            });
-        } else {
-            reset({
-                display_type: "default",
-                distance: 0,
             });
         }
     }, [workout, reset]);

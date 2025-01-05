@@ -1,6 +1,8 @@
 import {estimateTotalTime} from "../utils/CalcFunctions";
+import {v4 as uuid} from "uuid";
 
 const useWorkoutFunctions = () => {
+
     const updateWorkoutSubmit = (data) => {
         let workout;
         switch (data.display_type) {
@@ -25,8 +27,7 @@ const useWorkoutFunctions = () => {
             default:
                 break;
         }
-        workout = {...workout, time: estimateTotalTime(workout.distance, workout.type)};
-        return workout;
+        return {...workout, time: estimateTotalTime(workout.distance, workout.type), id: uuid()};
     }
 
     return {
