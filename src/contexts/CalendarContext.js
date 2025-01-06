@@ -91,18 +91,18 @@ export const CalendarProvider = ({children}) => {
         setIsCurrentWorkout(true);
     };
 
-    const removeWorkoutFromDay = (workout, date, currentDay) => {
+    const removeWorkoutFromDay = (id, date, currentDay) => {
         return calendarData.map((week) =>
             week.map((day) =>
                 currentDay.date === date
-                    ? {...day, workouts: day.workouts.filter((w) => w !== workout)}
+                    ? {...day, workouts: day.workouts.filter((w) => w.id !== id)}
                     : {...day}
             )
         );
     };
 
     const removeItem = async (workout, currentDay) => {
-        const updatedCalendarData = removeWorkoutFromDay(workout, day.date, currentDay);
+        const updatedCalendarData = removeWorkoutFromDay(workout.id, day.date, currentDay);
         setCalendarData(updatedCalendarData); // Notify parent of the update
         await addWorkoutDoc(`${year}-${month}`, updatedCalendarData.flat());
 
