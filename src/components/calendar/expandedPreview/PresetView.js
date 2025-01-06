@@ -17,7 +17,7 @@ const PresetView = () => {
             {presets?.map(preset => (
                 <Workout
                     workout={preset}
-                    key={presets.indexOf(preset)}
+                    key={preset.id}
                     deleteFunction={() => {
                         deletePreset(preset)
                     }}

@@ -78,7 +78,7 @@ export const CalendarProvider = ({children}) => {
         return () => {
             isMounted = false;
         };
-    }, [month, year]);
+    }, [month, year, EmptyCalendar, setCalendarDates]);
 
     const toggleShowing = (day, week) => {
         setShowing((prevShowing) => !prevShowing);

@@ -9,7 +9,7 @@ function WeekView() {
 
     useEffect(() => {
         findWeekInCalendar(week);
-    }, [calendarData]);
+    }, [calendarData, findWeekInCalendar, week]);
 
     return (
         <div className="weekView">

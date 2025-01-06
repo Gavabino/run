@@ -44,7 +44,7 @@ export const DashboardProvider = ({children}) => {
         return () => {
             isMounted = false;
         };
-    }, []);
+    }, [EmptyCalendar, setCalendarDates]);
 
     const findDayInCalendar = () => {
         const date = `${moment().year()}-${moment().month() + 1}-${moment().date()}`;

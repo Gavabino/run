@@ -24,6 +24,8 @@ function AddItemView() {
                 return <AddPreset/>
             case "edit":
                 return <EditForm workout={editWorkout}/>
+            default:
+                return <AddWorkout/>
         }
     }
 
