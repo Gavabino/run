@@ -59,7 +59,7 @@ export const PresetProvider = ({children}) => {
             (w) => w === workout
         );
         if (indexToDelete === -1) {
-            console.error("Workout not found in presets.");
+            console.error("workout not found in presets.");
             return;
         }
         const updatedPresets = [

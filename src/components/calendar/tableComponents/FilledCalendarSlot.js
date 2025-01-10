@@ -1,5 +1,5 @@
 import "../Calendar.css"
-import WorkoutPreview from "../WorkoutPreview";
+import WorkoutPreview from "../../workout/WorkoutPreview";
 import React from "react";
 import {useCalendar} from "../../../contexts/CalendarContext";
 

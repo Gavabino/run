@@ -1,6 +1,6 @@
 import {useDashboard} from "../../contexts/DashboardContext";
 import React from "react";
-import Workout from "../calendar/Workout";
+import Workout from "../workout/Workout";
 
 const CurrentDayView = () => {
     const {findDayInCalendar} = useDashboard();

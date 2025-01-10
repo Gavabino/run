@@ -12,13 +12,12 @@ function EditForm({workout}) {
     } = useForm();
 
     const {updateWorkoutSubmit} = useWorkoutFunctions();
-
     const {editWorkout, setCurrentWorkout, setIsCurrentWorkout} = useCalendar();
 
     const onSubmit = async (data) => {
         try {
             if (!workout) {
-                console.error("Workout data is missing. Cannot update.");
+                console.error("workout data is missing. Cannot update.");
                 return;
             }
 
@@ -38,11 +37,13 @@ function EditForm({workout}) {
                 display_type: workout.display_type || "default",
                 distance: workout.distance || 0,
             });
+        } else {
+            console.warn("No workout data provided to reset form.");
         }
     }, [workout, reset]);
 
     useEffect(() => {
-        console.log("Workout prop:", workout);
+        console.log("Workout prop received:", workout);
     }, [workout]);
 
     return (
@@ -52,15 +53,15 @@ function EditForm({workout}) {
                     className="selectType"
                     {...register("display_type", {required: true})}
                 >
-                    <option disabled value={"default"}>
+                    <option disabled value="default">
                         Select a workout type
                     </option>
-                    <option value={"Walk"}>Walk</option>
-                    <option value={"Recovery Run"}>Recovery Run</option>
-                    <option value={"Easy Run"}>Easy Run</option>
-                    <option value={"Long Run"}>Long Run</option>
-                    <option value={"Workout"}>Workout</option>
-                    <option value={"Race"}>Race</option>
+                    <option value="Walk">Walk</option>
+                    <option value="Recovery Run">Recovery Run</option>
+                    <option value="Easy Run">Easy Run</option>
+                    <option value="Long Run">Long Run</option>
+                    <option value="Workout">Workout</option>
+                    <option value="Race">Race</option>
                 </select>
                 <input
                     className="distanceSelect"
@@ -70,13 +71,13 @@ function EditForm({workout}) {
                     placeholder="Enter Distance"
                     step="0.01"
                     {...register("distance", {required: true})}
-                ></input>
+                />
                 <button className="submit" type="submit">
                     Save Changes
                 </button>
             </form>
         </>
-    )
+    );
 }
 
 export default EditForm;

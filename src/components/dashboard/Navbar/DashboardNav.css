@@ -1,6 +1,7 @@
 .settings-container {
     position: relative;
     display: inline-block;
+    z-index: 1; /* Ensure this container has a low z-index */
 }
 
 .gear-button {
@@ -8,21 +9,16 @@
     border: none;
     font-size: 24px;
     cursor: pointer;
-}
-
-.clicked {
-    animation: spin 0.25s linear;
+    position: relative; /* Keep it within the stacking context of the container */
+    z-index: 1; /* Lower z-index than the dropdown */
 }
 
 .dropdown {
-    position: absolute;
-    top: 40px;
-    right: 0;
     background-color: #fff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     padding: 10px;
-    z-index: 1000;
+    z-index: 1000; /* Very high z-index to override any overlapping issues */
 }
 
 .dropdown-button {

@@ -121,11 +121,11 @@ export const CalendarProvider = ({children}) => {
     const editWorkout = async (workout, newWorkout) => {
         const updatedCalendarData = calendarData.map((week) =>
             week.map((day) =>
-                day.workouts.some((w) => w === workout)
+                day.workouts.some((w) => w.id === workout.id) // Use unique ID comparison
                     ? {
                         ...day,
                         workouts: day.workouts.map((w) =>
-                            w === workout ? newWorkout : w
+                            w.id === workout.id ? newWorkout : w // Update the correct workout
                         ),
                     }
                     : day
@@ -133,9 +133,16 @@ export const CalendarProvider = ({children}) => {
         );
 
         setCalendarData(updatedCalendarData);
-        await addWorkoutDoc(`${year}-${month}`, updatedCalendarData.flat());
 
-        if (currentWorkout === workout) {
+        // Save updated data back to the Firestore
+        try {
+            await addWorkoutDoc(`${year}-${month}`, updatedCalendarData.flat());
+        } catch (error) {
+            console.error("Error saving updated calendar data:", error);
+        }
+
+        // Update the current workout if it matches the edited one
+        if (currentWorkout?.id === workout.id) {
             setCurrentWorkout(newWorkout);
         }
     };
@@ -181,6 +188,7 @@ export const CalendarProvider = ({children}) => {
         isShowing,
         setShowing,
         currentWorkout,
+        setCurrentWorkout,
         isCurrentWorkout,
         setIsCurrentWorkout,
         setActiveWorkout,

@@ -1,9 +1,9 @@
 import React from "react";
 import "./Workout.css"
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faTrash, faPencil} from "@fortawesome/free-solid-svg-icons";
 
-function Workout({workout, deleteFunction, onClick, disableDelete, editable, editFunction}) {
+import Dropdown from "./Dropdown";
+
+function Workout({workout, deleteFunction, onClick, disableDelete, editFunction}) {
     const {display_type, distance, type} = workout
 
     return (
@@ -18,12 +18,7 @@ function Workout({workout, deleteFunction, onClick, disableDelete, editable, edi
                         {workout.time} Minutes
                     </p>
                 </div>
-                {!disableDelete && <FontAwesomeIcon
-                    icon={faTrash}
-                    className="delete"
-                    onClick={deleteFunction}
-                />}
-                {editable && <FontAwesomeIcon icon={faPencil} className="edit" onClick={editFunction}/>}
+                {!disableDelete && <Dropdown editFunction={editFunction} deleteFunction={deleteFunction}/>}
             </div>
         </>
     );

@@ -1,4 +1,4 @@
-import Workout from "../Workout";
+import Workout from "../../workout/Workout";
 import React from "react";
 import {useCalendar} from "../../../contexts/CalendarContext";
 import {usePreset} from "../../../contexts/PresetContext";
@@ -33,7 +33,7 @@ const WorkoutContainer = () => {
                         workout={workout}
                         deleteFunction={() => removeItem(workout, currentDay)}
                         onClick={() => setActiveWorkout(workout)}
-                        key={day.workouts.indexOf(workout)}
+                        key={workout.id}
                         editable={true}
                         editFunction={() => handleClick(workout)}
                     />

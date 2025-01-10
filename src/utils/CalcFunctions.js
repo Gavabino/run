@@ -61,5 +61,5 @@ export const estimateTotalTime = (distance, type) => {
             break;
     }
 
-    return distance * pace;
+    return Math.round(distance * pace);
 }

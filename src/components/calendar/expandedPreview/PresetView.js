@@ -1,5 +1,5 @@
 import {usePreset} from "../../../contexts/PresetContext";
-import Workout from "../Workout";
+import Workout from "../../workout/Workout"
 import {useCalendar} from "../../../contexts/CalendarContext";
 import {v4 as uuid} from "uuid";
 
